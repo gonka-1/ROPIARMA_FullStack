@@ -46,7 +46,7 @@ function limpiarRegistroTemp() {
 }
 
 // Nombre que se muestra en el perfil del usuario a partir del correo electrónico.
-function obtenerNombreUsuario() {
+function obtenerNombreUsuario(email) {
   const usuario = email.split('@')[0]||email;
   return usuario
   .replace(/[._-]+/g, ' ')
@@ -60,6 +60,8 @@ function obtenerNombreUsuario() {
 function actualizarHeaderSesion() {
   const menu = document.querySelector('.logo.dropdown-menu');
   if (!menu) return;
+
+  const sesion = obtenerSesion();
 
   if (sesion) {
     menu.innerHTML = `
@@ -84,6 +86,8 @@ function actualizarHeaderSesion() {
 
 
 document.addEventListener('DOMContentLoaded', function () {
+
+  actualizarHeaderSesion();
 
 // Datos personales
   const formDatosPersonales = document.getElementById('formDatosPersonales');
@@ -135,6 +139,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
 
+      const nombre = document.getElementById('nombre').value.trim()||'';
+      const apellido = document.getElementById('apellido').value.trim()||'';
+      const telefono = document.getElementById('telefono').value.trim()||'';
+      const comuna = document.getElementById('comuna').value.trim()||'';
+      const ciudad = document.getElementById('ciudad').value.trim()||'';
+      const region = document.getElementById('region').value.trim()||'';
+
+      guardarRegistroTemp({nombre, apellido, telefono, comuna, ciudad, region});
+
       window.location.href = 'Usuario-conf.html';
     });
   }
@@ -174,6 +187,10 @@ document.addEventListener('DOMContentLoaded', function () {
         alert('La contraseña debe incluir al menos una letra mayúscula, una minúscula y un número.');
         return;
       }
+
+      const datosPersonales = obtenerRegistroTemp() || {};
+      guardarSesion({...datosPersonales, email });
+      limpiarRegistroTemp();
 
       // Toast de Bootstrap o Alerta
       const toastEl = document.getElementById('toastUsuarioCreado');
@@ -244,6 +261,12 @@ document.addEventListener('DOMContentLoaded', function () {
         alert('La contraseña debe incluir al menos una letra mayúscula, una minúscula y un número.');
         return;
       }
+
+      const sesionPrevia = obtenerSesion();
+      const datosBase = (sesionPrevia && sesionPrevia.email === email)
+        ? sesionPrevia : { nombre : obtenerNombreUsuario(email)};
+
+      guardarSesion({...datosBase, email });
 
       // 3. Confirmación de inicio de sesión exitoso y redirección
       alert('¡Bienvenido de nuevo! Has ingresado con éxito.');
