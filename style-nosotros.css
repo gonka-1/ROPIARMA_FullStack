@@ -18,7 +18,14 @@
 
 /*LETRAS FUENTES*/
 /* Fuente principal para todo el sitio */
-body{
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #FEF4E7;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -52,22 +59,10 @@ h1, h2, h3, h4, h5, h6, .card-title{
     line-height: 1.8;
     font-size: 1rem;
 }
-
-
 /*MAIN*/
 
-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #FEF4E7;
-}
 
 /*FOOTER*/
-
-
 footer {
     background-color: #2E8B57;
     color: rgb(218, 212, 208);

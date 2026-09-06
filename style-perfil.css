@@ -1,0 +1,114 @@
+/*HEADER*/
+.barraMenu {
+    background-color: #FEF4E7;
+}
+
+.barraMenu .navbar-collapse {
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+/*HEADER*/
+
+/*MAIN*/
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #FEF4E7;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Fuente para encabezados y títulos */
+h1, h2, h3, h4, h5, h6, .card-title{
+    font-family: 'Playfair Display', serif;
+}
+
+.logoHuerto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    margin: 20px auto 20px; /* Cambia a 20px (o 10px) para reducir el espacio arriba */
+}
+
+.logoHuerto img {
+    margin-top: 50px;
+    width: 400px;     /* Ajusta el ancho según lo que necesites */
+    height: auto;     /* Mantiene la proporción original de la imagen */
+}
+/*MAIN*/
+
+/*FOOTER*/
+footer {
+    background-color: #2E8B57;
+    color: rgb(218, 212, 208);
+    padding: 30px 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-contendor {
+    width: 90%;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.col {
+    text-align: center;
+    flex: 1;
+}
+
+.btn.btn-success {
+    background-color: rgb(188, 198, 188);
+    color: rgb(12, 10, 10);
+    margin-top: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(218, 212, 208);
+}
+.huerto {
+    font-size: 34px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin: 0 0 15px 0;
+}
+
+.descripcion-huerto{
+    font-size: 17px;
+    line-height: 1.6;
+    max-width: 400px;
+    margin: auto;
+}
+
+.titulos{
+    font-weight: bold; 
+    font-size: 25px; 
+    margin-bottom: 5px;
+}
+/*FOOTER*/

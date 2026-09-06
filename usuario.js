@@ -58,7 +58,7 @@ function obtenerNombreUsuario(email) {
 
 // CAMBIO HEADER - MOSTRAR "PERFIL"
 function actualizarHeaderSesion() {
-  const menu = document.querySelector('.logo.dropdown-menu');
+  const menu = document.querySelector('.logo.dropdown .dropdown-menu');
   if (!menu) return;
 
   const sesion = obtenerSesion();
@@ -72,7 +72,7 @@ function actualizarHeaderSesion() {
     if (btnSalir) {
       btnSalir.addEventListener('click', function (e) {
         e.preventDefault();
-        hhCerrarSesion();
+        cerrarSesion();
         window.location.href = 'Principal.html';
       });
     }
@@ -139,12 +139,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
 
-      const nombre = document.getElementById('nombre').value.trim()||'';
-      const apellido = document.getElementById('apellido').value.trim()||'';
-      const telefono = document.getElementById('telefono').value.trim()||'';
-      const comuna = document.getElementById('comuna').value.trim()||'';
-      const ciudad = document.getElementById('ciudad').value.trim()||'';
-      const region = document.getElementById('region').value.trim()||'';
+      const nombre = document.getElementById('typeNombre').value.trim()||'';
+      const apellido = document.getElementById('typeApellido').value.trim()||'';
+      const telefono = document.getElementById('typePhone').value.trim()||'';
+      const comuna = document.getElementById('typeComuna').value.trim()||'';
+      const ciudad = document.getElementById('typeCiudad').value.trim()||'';
+      const region = document.getElementById('typeRegion').value.trim()||'';
 
       guardarRegistroTemp({nombre, apellido, telefono, comuna, ciudad, region});
 
@@ -191,6 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const datosPersonales = obtenerRegistroTemp() || {};
       guardarSesion({...datosPersonales, email });
       limpiarRegistroTemp();
+      actualizarHeaderSesion();
 
       // Toast de Bootstrap o Alerta
       const toastEl = document.getElementById('toastUsuarioCreado');
