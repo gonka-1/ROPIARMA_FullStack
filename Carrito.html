@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- HEAD -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BOOTSTRAP CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <!-- HOJA DE ESTILO -->
     <link rel="stylesheet" href="style-carrito.css">
-    <title>Carrito - Huerto Hogar</title>
-    <!-- Servidores de Google Fonts -->
+    <!-- FUENTES DE GOOGLE -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Importar Montserrat y Playfair Display -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"rel="stylesheet">
+    <!-- TÍTULO PESTAÑA -->
+    <title>Carrito</title>
 </head>
 
+<!-- BODY -->
 <body>
-
+    <!-- HEADER -->
     <header>
         <div class="cajaHeader">
             <nav class="navbar navbar-expand-lg barraMenu">
@@ -39,21 +39,26 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="Ubicaciones.html">Ubicaciones</a>
                             </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="Blogs.html">Blogs</a>
                             </li>
                         </ul>
                     </div>
                 </div>
+
+                <!-- Carrito -->
                 <div class="carrito">
                     <a class="carritoEmoji" href="Carrito.html">
                         <div class="position-relative d-inline-block">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
+                                viewBox="0 0 16 16">
                                 <path
                                     d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5zM3.14 4l1.25 6h8.22l1.125-6H3.14zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                             </svg>
-                
-                            <!-- Número centrado DENTRO del carrito -->
-                            <span id="contadorCarrito" class="position-absolute top-50 start-50 translate-middle fw-bold text-dark"
+
+                            <!-- Número centrado dentro del carrito -->
+                            <span id="contadorCarrito"
+                                class="position-absolute top-50 start-50 translate-middle fw-bold text-dark"
                                 style="font-size: 0.65rem; margin-top: -3px; margin-left: 2px;">
                                 0
                             </span>
@@ -61,7 +66,7 @@
                     </a>
                 </div>
 
-                <!-- LOGO CON MENÚ DESPLEGABLE -->
+                <!-- Logo con menú desplegable de usuario -->
                 <div class="logo dropdown">
                     <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img height="60px" src="imagenes/LogoPlanta.png" alt="logoPlanta" style="cursor: pointer;">
@@ -75,13 +80,8 @@
         </div>
     </header>
 
-
-
-
-
-
+    <!-- MAIN -->
     <main>
-
         <div class="container my-4">
             <div class="row g-4">
                 <!-- Columna Izquierda: Lista de Productos -->
@@ -91,29 +91,23 @@
                 <div class="col-lg-4">
                     <div class="card border-0 shadow-sm p-4 rounded-3  card">
                         <h5 class="fw-bold mb-3 fs-6">Resumen de compra</h5>
-
                         <div class="d-flex justify-content-between mb-2 text-muted">
                             <span>Productos</span>
                             <span id="subtotalTexto">$0</span>
                         </div>
-
                         <div class="d-flex justify-content-between mb-2 text-success d-none" id="filaDescuento">
                             <span>Descuento</span>
                             <span id="descuentoTexto">-$0</span>
                         </div>
-
                         <div class="d-flex justify-content-between mb-3 text-muted">
                             <span>Envío</span>
                             <span class="text-success fw-semibold">Gratis</span>
                         </div>
-
                         <hr>
-
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <span class="fw-bold fs-5">Total</span>
                             <span class="fw-bold fs-4 text-dark" id="totalTexto">$0</span>
                         </div>
-
                         <div class="mb-3">
                             <label for="inputCupon" class="form-label text-muted small mb-1">Ingrese el cupón de
                                 descuento</label>
@@ -124,13 +118,9 @@
                             </div>
                             <small id="mensajeCupon" class="d-block mt-1 small"></small>
                         </div>
-
-
-
                         <button class="btn btn-primary w-100 py-2 fw-semibold" onclick="comprar()">
                             Continuar compra
                         </button>
-
                         <button class="btn btn-link text-danger w-100 mt-2 text-decoration-none btn-sm"
                             onclick="vaciarCarrito()">
                             Vaciar carrito
@@ -139,58 +129,61 @@
                 </div>
             </div>
         </div>
-
-
     </main>
 
-
-
-
-
+    <!-- FOOTER -->
     <footer>
         <div class="footer-contendor">
             <div class="row">
+
+                <!-- Logo y descripción -->
                 <div class="col">
                     <div class="logoFooter">
-                        <!-- Tamaño ajustado directamente en la etiqueta img -->
                         <img src="imagenes/LogoHuertoHogar.png" alt="Logo Huerto Hogar"
                             style="width: 200px; height: auto;">
                     </div>
-                    <p class="descripcion-huerto" style="font-size: 15px;"> Productos agrícolas de calidad,
-                        directamente para tu hogar.
+                    <p class="descripcion-huerto" style="font-size: 15px;">
+                        Productos agrícolas de calidad, directamente para tu hogar.
                     </p>
                 </div>
+
+                <!-- Categorías -->
                 <div class="col">
                     <h4 class="titulos">Categorías</h4>
                     <ul>
                         <li><a href="#">Frutas Frescas</a></li>
                         <li><a href="#">Verduras Orgánicas</a></li>
                         <li><a href="#">Frutas Secas</a></li>
-                        <li><a href="#">Productos Lacteos</a></li>
+                        <li><a href="#">Productos Lácteos</a></li>
                     </ul>
                 </div>
-                <div class="col">
 
+                <!-- Contacto -->
+                <div class="col">
                     <h4 class="titulos">Contacto</h4>
                     <ul>
-                        <li>Direccion: Emco 4780, San Joaquín, Santiago</li>
-                        <li>Telefono: +56 9 1234 5678</li>
+                        <li>Dirección: Emco 4780, San Joaquín, Santiago</li>
+                        <li>Teléfono: +56 9 1234 5678</li>
                         <li>Email: info@huertohogar.cl</li>
                     </ul>
                 </div>
+
+                <!-- Suscripción -->
                 <div class="col">
                     <h4 class="titulos">Nutre tu día</h4>
-                    <p class="titulo-correo"> Obtén beneficios por tu suscripción</p>
+                    <p class="titulo-correo">Obtén beneficios por tu suscripción</p>
                     <input type="email" class="form-control" placeholder="Ingresa tu correo electrónico">
                     <button type="button" class="btn btn-success">Suscribirse</button>
                 </div>
+
             </div>
         </div>
     </footer>
 
+    <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SCRIPT JS -->
     <script src="action.js"></script>
-
 </body>
 
 </html>

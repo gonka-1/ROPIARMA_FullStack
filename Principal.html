@@ -1,96 +1,98 @@
 <!DOCTYPE html>
 <html lang="es">
-
+<!-- HEAD -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BOOTSTRAP CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <!-- HOJA DE ESTILO -->
     <link rel="stylesheet" href="style.css">
-    <title>Huerto Hogar - Inicio</title>
-
-        <!-- Servidores de Google Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com">
-        <link rel="stylesheet" href="https://fonts.gstatic.com" crossorigin>
-        
-        <!-- Importar Montserrat y Playfair Display -->
-        <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
+    <!-- FUENTES DE GOOGLE -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"rel="stylesheet">
+    <!-- TÍTULO PESTAÑA -->
+    <title>Huerto Hogar</title>
 </head>
 
+<!-- BODY -->
 <body>
+    <!-- HEADER -->
     <header>
-    <div class="cajaHeader">
-        <nav class="navbar navbar-expand-lg barraMenu">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="Principal.html">Inicio</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="Productos.html">Productos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Nosotros.html">Nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Ubicaciones.html">Ubicaciones</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Blogs.html">Blogs</a>
-                        </li>
+        <div class="cajaHeader">
+            <nav class="navbar navbar-expand-lg barraMenu">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="Principal.html">Inicio</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="Productos.html">Productos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Nosotros.html">Nosotros</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Ubicaciones.html">Ubicaciones</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Blogs.html">Blogs</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Carrito -->
+                <div class="carrito">
+                    <a class="carritoEmoji" href="Carrito.html">
+                        <div class="position-relative d-inline-block">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5zM3.14 4l1.25 6h8.22l1.125-6H3.14zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg>
+
+                            <!-- Número centrado dentro del carrito -->
+                            <span id="contadorCarrito"
+                                class="position-absolute top-50 start-50 translate-middle fw-bold text-dark"
+                                style="font-size: 0.65rem; margin-top: -3px; margin-left: 2px;">
+                                0
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Logo con menú desplegable de usuario -->
+                <div class="logo dropdown">
+                    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img height="60px" src="imagenes/LogoPlanta.png" alt="logoPlanta" style="cursor: pointer;">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="Usuario-ingresar.html">Ingresar</a></li>
+                        <li><a class="dropdown-item" href="Usuario.html">Crear usuario</a></li>
                     </ul>
                 </div>
-            </div>
-            <div class="carrito">
-                <a class="carritoEmoji" href="Carrito.html">
-                    <div class="position-relative d-inline-block">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16">
-                            <path
-                                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5zM3.14 4l1.25 6h8.22l1.125-6H3.14zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                        </svg>
-            
-                        <!-- Número centrado DENTRO del carrito -->
-                        <span id="contadorCarrito" class="position-absolute top-50 start-50 translate-middle fw-bold text-dark"
-                            style="font-size: 0.65rem; margin-top: -3px; margin-left: 2px;">
-                            0
-                        </span>
-                    </div>
-                </a>
-            </div>
-            <!-- LOGO CON MENÚ DESPLEGABLE -->
-            <div class="logo dropdown">
-                <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img height="60px" src="imagenes/LogoPlanta.png" alt="logoPlanta" style="cursor: pointer;">
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="Usuario-ingresar.html">Ingresar</a></li>
-                    <li><a class="dropdown-item" href="Usuario.html">Crear usuario</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>   
-</header>
+            </nav>
+        </div>
+    </header>
 
-    
-    
-
-
-
-  
-
+    <!-- MAIN -->
     <main>
         <div class="colorFondo">
             <div class="tituloInicio">
-                <h1>Bienvenidos a Huerto - Hogar</h1>
+                <h1>Bienvenidos a Huerto Hogar</h1>
             </div>
+            <!-- CAROUSEL -->
             <div class="carruselInicio">
-                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel"
+                    data-bs-interval="3000">
                     <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
                             aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
@@ -108,7 +110,8 @@
                             <img src="imagenes/naranjas_valencia.jpeg" class="d-block w-100" alt="Naranaja Valencia">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Naranja Valencia</h5>
-                                <p>Jugosas y ricas en vitamina, cultivadas en condiciones climáticas óptimas que aseguran su dulzura y jugosidad. C</p>
+                                <p>Jugosas y ricas en vitamina, cultivadas en condiciones climáticas óptimas que
+                                    aseguran su dulzura y jugosidad. C</p>
                             </div>
                         </div>
                         <div class="carousel-item">
@@ -131,122 +134,135 @@
                     </button>
                 </div>
             </div>
-
+            <!-- CARDS -->
             <div class="cartasInicio">
                 <!--CARTA 1-->
                 <div class="card card-border-hover">
                     <img src="ver2imagenes/leche entera.jpg" class="card-img-top" alt="LecheCard">
                     <div class="card-body">
                         <h5 class="card-title">Leche Entera</h5>
-                        <p class="card-text">Cremosidad pura y sabor de campo en cada gota. Nutrición 100% natural, directo a tu mesa.</p>
+                        <p class="card-text">Cremosidad pura y sabor de campo en cada gota. Nutrición 100% natural,
+                            directo a tu mesa.</p>
                         <a href="VistaLeche.html" class="btn btn-relieve">Más información</a>
                     </div>
                 </div>
                 <!--CARTA 2-->
-                <div class="card card-border-hover" >
+                <div class="card card-border-hover">
                     <img src="ver2imagenes/Quinoa.jpg" class="card-img-top" alt="Quinoa">
                     <div class="card-body">
                         <h5 class="card-title">Quinoa</h5>
-                        <p class="card-text">Energía pura y nutrición ancestral. El superalimento versátil que eleva cada una de tus comidas.</p>
+                        <p class="card-text">Energía pura y nutrición ancestral. El superalimento versátil que eleva
+                            cada una de tus comidas.</p>
                         <a href="VistaQuinoa.html" class="btn btn-relieve">Más información</a>
                     </div>
                 </div>
                 <!--CARTA 3-->
-                <div class="card card-border-hover" >
+                <div class="card card-border-hover">
                     <img src="ver2imagenes/Pimientos.jpeg" class="card-img-top" alt="Pimiento">
                     <div class="card-body">
                         <h5 class="card-title">Pimientos</h5>
-                        <p class="card-text">Frescura crocante, color vibrante y sabor intenso. El toque irresistible que le falta a tus preparaciones.</p>
+                        <p class="card-text">Frescura crocante, color vibrante y sabor intenso. El toque irresistible
+                            que le falta a tus preparaciones.</p>
                         <a href="VistaPimiento.html" class="btn btn-relieve">Más información</a>
                     </div>
                 </div>
                 <!--CARTA 4-->
-                <div class="card card-border-hover" >
+                <div class="card card-border-hover">
                     <img src="imagenes/Espinacas.jpeg" class="card-img-top" alt="Espinacas">
                     <div class="card-body">
                         <h5 class="card-title">Espinaca</h5>
-                        <p class="card-text">Hojas tiernas, frescura viva y máxima vitalidad. El boost verde e imprescindible para tu día a día.</p>
+                        <p class="card-text">Hojas tiernas, frescura viva y máxima vitalidad. El boost verde e
+                            imprescindible para tu día a día.</p>
                         <a href="VistaEspinaca.html" class="btn btn-relieve">Más información</a>
                     </div>
                 </div>
                 <!--CARTA 5-->
-                <div class="card card-border-hover" >
+                <div class="card card-border-hover">
                     <img src="ver2imagenes/platano cavendish.jpg" class="card-img-top" alt="PlatanoCavendish">
                     <div class="card-body">
                         <h5 class="card-title">Plátano Cavendish</h5>
-                        <p class="card-text">Dulzura natural, textura suave y energía al instante. La fruta clásica que nunca puede faltar en tu cocina.</p>
+                        <p class="card-text">Dulzura natural, textura suave y energía al instante. La fruta clásica que
+                            nunca puede faltar en tu cocina.</p>
                         <a href="VistaPlatano.html" class="btn btn-relieve">Más información</a>
                     </div>
                 </div>
                 <!--CARTA 6-->
-                <div class="card card-border-hover" >
+                <div class="card card-border-hover">
                     <img src="imagenes/naranjas_valencia.jpeg" class="card-img-top" alt="NaranjaValencia">
                     <div class="card-body">
                         <h5 class="card-title">Naranja Valenciana</h5>
-                        <p class="card-text">Pura jugosidad, aroma vibrante y el equilibrio cítrico ideal. Vitamina C fresca para transformar tus mañanas.</p>
+                        <p class="card-text">Pura jugosidad, aroma vibrante y el equilibrio cítrico ideal. Vitamina C
+                            fresca para transformar tus mañanas.</p>
                         <a href="VistaNaranja.html" class="btn btn-relieve">Más información</a>
                     </div>
                 </div>
                 <!--CARTA 7-->
-                <div class="card card-border-hover" >
+                <div class="card card-border-hover">
                     <img src="ver2imagenes/zanahorias.jpg" class="card-img-top" alt="Zanahorias">
                     <div class="card-body">
                         <h5 class="card-title">Zanahorias</h5>
-                        <p class="card-text">Crocantes, dulces y recién cosechadas. El toque de frescura y vitalidad que transforma cualquier plato.</p>
+                        <p class="card-text">Crocantes, dulces y recién cosechadas. El toque de frescura y vitalidad que
+                            transforma cualquier plato.</p>
                         <a href="VistaZanahoria.html" class="btn btn-relieve">Más información</a>
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
     </main>
 
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-contendor">
+            <div class="row">
 
-<footer>
-    <div class="footer-contendor">
-        <div class="row">
-            <div class="col">
-                <div class="logoFooter">
-                    <!-- Tamaño ajustado directamente en la etiqueta img -->
-                    <img src="imagenes/LogoHuertoHogar.png" alt="Logo Huerto Hogar" style="width: 200px; height: auto;">
+                <!-- Logo y descripción -->
+                <div class="col">
+                    <div class="logoFooter">
+                        <img src="imagenes/LogoHuertoHogar.png" alt="Logo Huerto Hogar"
+                            style="width: 200px; height: auto;">
+                    </div>
+                    <p class="descripcion-huerto" style="font-size: 15px;">
+                        Productos agrícolas de calidad, directamente para tu hogar.
+                    </p>
                 </div>
-                <p class="descripcion-huerto" style="font-size: 15px;"> Productos agrícolas de calidad,
-                    directamente para tu hogar.
-                </p>
-            </div>
-            <div class="col">
-                <h4 class="titulos">Categorías</h4>
-                <ul>
-                    <li><a href="#">Despensa</a></li>
-                    <li><a href="#">Frutas</a></li>
-                    <li><a href="#">Verduras</a></li>
-                </ul>
-            </div>
-            <div class="col">
 
-                <h4 class="titulos">Contacto</h4>
-                <ul>
-                    <li>Direccion: Av. Principal 123</li>
-                    <li>Telefono: +56 9 1234 5678</li>
-                    <li>Email: info@huertohogar.cl</li>
-                </ul>
-            </div>
-            <div class="col">
-                <h4 class="titulos">Nutre tu día</h4>
-                <p class="titulo-correo"> Obtén beneficios por tu suscripción</p>
-                <input type="email" class="form-control" placeholder="Ingresa tu correo electrónico">
-                <button type="button" class="btn btn-success">Suscribirse</button>
+                <!-- Categorías -->
+                <div class="col">
+                    <h4 class="titulos">Categorías</h4>
+                    <ul>
+                        <li><a href="#">Frutas Frescas</a></li>
+                        <li><a href="#">Verduras Orgánicas</a></li>
+                        <li><a href="#">Frutas Secas</a></li>
+                        <li><a href="#">Productos Lácteos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto -->
+                <div class="col">
+                    <h4 class="titulos">Contacto</h4>
+                    <ul>
+                        <li>Dirección: Emco 4780, San Joaquín, Santiago</li>
+                        <li>Teléfono: +56 9 1234 5678</li>
+                        <li>Email: info@huertohogar.cl</li>
+                    </ul>
+                </div>
+
+                <!-- Suscripción -->
+                <div class="col">
+                    <h4 class="titulos">Nutre tu día</h4>
+                    <p class="titulo-correo">Obtén beneficios por tu suscripción</p>
+                    <input type="email" class="form-control" placeholder="Ingresa tu correo electrónico">
+                    <button type="button" class="btn btn-success">Suscribirse</button>
+                </div>
+
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
-
+    <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SCRIPT JS -->
     <script src="action.js"></script>
-
-
-
-
 </body>
 
 </html>

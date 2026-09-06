@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
-
+<!-- HEAD -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BOOTSTRAP CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <!-- HOJA DE ESTILO -->
     <link rel="stylesheet" href="style-usuario.css">
-    <title>Crear usuario</title>
-
-        <!-- Servidores de Google Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com">
-        <link rel="stylesheet" href="https://fonts.gstatic.com" crossorigin>
-    
-        <!-- Importar Montserrat y Playfair Display -->
-         <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
+    <!-- FUENTES DE GOOGLE -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"rel="stylesheet">
+    <!-- TÍTULO PESTAÑA -->
+     <title>Crear usuario</title>
 </head>
 
+<!-- BODY -->
 <body>
     <!-- HEADER -->
-       <header>
+    <header>
         <div class="cajaHeader">
             <nav class="navbar navbar-expand-lg barraMenu">
                 <div class="container-fluid">
@@ -45,23 +45,28 @@
                         </ul>
                     </div>
                 </div>
+
+                <!-- Carrito -->
                 <div class="carrito">
                     <a class="carritoEmoji" href="Carrito.html">
                         <div class="position-relative d-inline-block">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
+                                viewBox="0 0 16 16">
                                 <path
                                     d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5zM3.14 4l1.25 6h8.22l1.125-6H3.14zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                             </svg>
-                
-                            <!-- Número centrado DENTRO del carrito -->
-                            <span id="contadorCarrito" class="position-absolute top-50 start-50 translate-middle fw-bold text-dark"
+
+                            <!-- Número centrado dentro del carrito -->
+                            <span id="contadorCarrito"
+                                class="position-absolute top-50 start-50 translate-middle fw-bold text-dark"
                                 style="font-size: 0.65rem; margin-top: -3px; margin-left: 2px;">
                                 0
                             </span>
                         </div>
                     </a>
                 </div>
-                <!-- LOGO CON MENÚ DESPLEGABLE -->
+
+                <!-- Logo con menú desplegable de usuario -->
                 <div class="logo dropdown">
                     <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img height="60px" src="imagenes/LogoPlanta.png" alt="logoPlanta" style="cursor: pointer;">
@@ -74,6 +79,7 @@
             </nav>
         </div>
     </header>
+
     <!-- MAIN -->
     <main class="container my-5">
         <div class="row justify-content-center">
@@ -98,7 +104,7 @@
                     <div class="row g-2">
                         <div class="col-md-4 mb-3">
                             <label for="diaNacimiento" class="form-label">Día</label>
-                            <!-- ID CORREGIDO: diaNacimiento -->
+                            <!-- DÍA NACIMIENTO -->
                             <select class="form-select" id="diaNacimiento" required>
                                 <option value="" selected disabled>Día</option>
                                 <option value="1">1</option>
@@ -134,7 +140,7 @@
                                 <option value="31">31</option>
                             </select>
                         </div>
-
+                        <!-- MES NACIMIENTO -->
                         <div class="col-md-4 mb-3">
                             <label for="mesNacimiento" class="form-label">Mes</label>
                             <select class="form-select" id="mesNacimiento" required>
@@ -153,14 +159,13 @@
                                 <option value="11">Diciembre</option>
                             </select>
                         </div>
-
+                        <!-- AÑO NACIMIENTO -->
                         <div class="col-md-4 mb-3">
                             <label for="anioNacimiento" class="form-label">Año</label>
-                            <!-- ID CORREGIDO: anioNacimiento -->
-                            <input type="number" class="form-control" id="anioNacimiento" min="1900" max="2026" placeholder="Ej. 1995" required>
+                            <input type="number" class="form-control" id="anioNacimiento" min="1900" max="2026"
+                                placeholder="Ej. 1995" required>
                         </div>
                     </div>
-
                     <!-- TELÉFONO -->
                     <div class="mb-3">
                         <label class="form-label" for="typePhone">Número de teléfono</label>
@@ -169,7 +174,6 @@
                             <input type="tel" id="typePhone" class="form-control" placeholder="9 1234 5678" required />
                         </div>
                     </div>
-
                     <!-- COMUNA -->
                     <div class="mb-3">
                         <label class="form-label" for="typeComuna">Comuna</label>
@@ -180,7 +184,6 @@
                             <option value="Valparaíso">Valparaíso</option>
                         </select>
                     </div>
-
                     <!-- CIUDAD -->
                     <div class="mb-3">
                         <label class="form-label" for="typeCiudad">Ciudad</label>
@@ -191,7 +194,6 @@
                             <option value="Valparaíso">Valparaíso</option>
                         </select>
                     </div>
-
                     <!-- REGIÓN -->
                     <div class="mb-3">
                         <label class="form-label" for="typeRegion">Región</label>
@@ -202,9 +204,7 @@
                             <option value="Valparaíso">Región de Valparaíso</option>
                         </select>
                     </div>
-
                     <!-- BOTÓN DE SUBMIT -->
-
                     <div class="contenedor-boton">
                         <button type="submit" class="btn btn-relieve">Confirmar</button>
                     </div>
@@ -212,48 +212,59 @@
             </div>
         </div>
     </main>
-
+    
     <!-- FOOTER -->
-<footer>
-    <div class="footer-contendor">
-        <div class="row">
-            <div class="col">
-                <div class="logoFooter">
-                    <!-- Tamaño ajustado directamente en la etiqueta img -->
-                    <img src="imagenes/LogoHuertoHogar.png" alt="Logo Huerto Hogar" style="width: 200px; height: auto;">
-                </div>
-                <p class="descripcion-huerto" style="font-size: 15px;"> Productos agrícolas de calidad,
-                    directamente para tu hogar.
-                </p>
-            </div>
-            <div class="col">
-                <h4 class="titulos">Categorías</h4>
-                <ul>
-                    <li><a href="#">Despensa</a></li>
-                    <li><a href="#">Frutas</a></li>
-                    <li><a href="#">Verduras</a></li>
-                </ul>
-            </div>
-            <div class="col">
+    <footer>
+        <div class="footer-contendor">
+            <div class="row">
 
-                <h4 class="titulos">Contacto</h4>
-                <ul>
-                    <li>Direccion: Av. Principal 123</li>
-                    <li>Telefono: +56 9 1234 5678</li>
-                    <li>Email: info@huertohogar.cl</li>
-                </ul>
-            </div>
-            <div class="col">
-                <h4 class="titulos">Nutre tu día</h4>
-                <p class="titulo-correo"> Obtén beneficios por tu suscripción</p>
-                <input type="email" class="form-control" placeholder="Ingresa tu correo electrónico">
-                <button type="button" class="btn btn-success">Suscribirse</button>
+                <!-- Logo y descripción -->
+                <div class="col">
+                    <div class="logoFooter">
+                        <img src="imagenes/LogoHuertoHogar.png" alt="Logo Huerto Hogar"
+                            style="width: 200px; height: auto;">
+                    </div>
+                    <p class="descripcion-huerto" style="font-size: 15px;">
+                        Productos agrícolas de calidad, directamente para tu hogar.
+                    </p>
+                </div>
+
+                <!-- Categorías -->
+                <div class="col">
+                    <h4 class="titulos">Categorías</h4>
+                    <ul>
+                        <li><a href="#">Frutas Frescas</a></li>
+                        <li><a href="#">Verduras Orgánicas</a></li>
+                        <li><a href="#">Frutas Secas</a></li>
+                        <li><a href="#">Productos Lácteos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto -->
+                <div class="col">
+                    <h4 class="titulos">Contacto</h4>
+                    <ul>
+                        <li>Dirección: Emco 4780, San Joaquín, Santiago</li>
+                        <li>Teléfono: +56 9 1234 5678</li>
+                        <li>Email: info@huertohogar.cl</li>
+                    </ul>
+                </div>
+
+                <!-- Suscripción -->
+                <div class="col">
+                    <h4 class="titulos">Nutre tu día</h4>
+                    <p class="titulo-correo">Obtén beneficios por tu suscripción</p>
+                    <input type="email" class="form-control" placeholder="Ingresa tu correo electrónico">
+                    <button type="button" class="btn btn-success">Suscribirse</button>
+                </div>
+
             </div>
         </div>
-    </div>
-</footer>
-    <!-- JS CDN CORREGIDO A 5.3.3 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </footer>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SCRIPT JS -->
     <script src="usuario.js"></script>
 </body>
 

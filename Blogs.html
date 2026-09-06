@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
-
+<!-- HEAD -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BOOTSTRAP CSS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <!-- HOJA DE ESTILO -->
     <link rel="stylesheet" href="style-blog.css">
-    <title>Huerto Hogar - Blogs</title>
-
-    <!-- Servidores de Google Fonts -->
+    <!-- FUENTES DE GOOGLE -->
     <link rel="stylesheet" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Importar Montserrat y Playfair Display -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"rel="stylesheet">
+    <!-- TÍTULO PESTAÑA -->
+    <title>Blogs</title>
 </head>
 
+<!-- BODY -->
 <body>
-<!-- HEADER -->
-       <header>
+    <!-- HEADER -->
+    <header>
         <div class="cajaHeader">
             <nav class="navbar navbar-expand-lg barraMenu">
                 <div class="container-fluid">
@@ -46,23 +45,28 @@
                         </ul>
                     </div>
                 </div>
+
+                <!-- Carrito -->
                 <div class="carrito">
                     <a class="carritoEmoji" href="Carrito.html">
                         <div class="position-relative d-inline-block">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
+                                viewBox="0 0 16 16">
                                 <path
                                     d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5zM3.14 4l1.25 6h8.22l1.125-6H3.14zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                             </svg>
-                
-                            <!-- Número centrado DENTRO del carrito -->
-                            <span id="contadorCarrito" class="position-absolute top-50 start-50 translate-middle fw-bold text-dark"
+
+                            <!-- Número centrado dentro del carrito -->
+                            <span id="contadorCarrito"
+                                class="position-absolute top-50 start-50 translate-middle fw-bold text-dark"
                                 style="font-size: 0.65rem; margin-top: -3px; margin-left: 2px;">
                                 0
                             </span>
                         </div>
                     </a>
                 </div>
-                <!-- LOGO CON MENÚ DESPLEGABLE -->
+
+                <!-- Logo con menú desplegable de usuario -->
                 <div class="logo dropdown">
                     <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img height="60px" src="imagenes/LogoPlanta.png" alt="logoPlanta" style="cursor: pointer;">
@@ -76,10 +80,7 @@
         </div>
     </header>
 
-
-
-
-
+    <!-- MAIN -->
     <main>
         <div class="colorFondoBlogs">
             <div class="tituloBlogs">
@@ -123,7 +124,6 @@
                                         que convertirá tu merienda en el mejor momento del día.</p>
                                 </div>
                             </a>
-
                         </div>
                         <div class="carousel-item">
                             <a href="https://www.gourmet.cl/recetas/timbal-de-quinoa/" target="_blank"
@@ -136,7 +136,6 @@
                                         complicarte.</p>
                                 </div>
                             </a>
-
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
@@ -175,7 +174,6 @@
                             target="_blank" rel="noopener noreferrer" class="btn btn-primary">Saber más</a>
                     </div>
                 </div>
-
                 <div class="card card-noticia">
                     <img src="imagenes/noticia3.webp" class="card-img-top" alt="cultivos mundiales">
                     <div class="card-body">
@@ -186,38 +184,37 @@
                     </div>
                 </div>
             </div>
-
-
-
     </main>
 
-
-
-
+    <!-- FOOTER -->
     <footer>
         <div class="footer-contendor">
             <div class="row">
+
+                <!-- Logo y descripción -->
                 <div class="col">
                     <div class="logoFooter">
-                        <!-- Tamaño ajustado directamente en la etiqueta img -->
                         <img src="imagenes/LogoHuertoHogar.png" alt="Logo Huerto Hogar"
                             style="width: 200px; height: auto;">
                     </div>
-                    <p class="descripcion-huerto" style="font-size: 15px;"> Productos agrícolas de calidad,
-                        directamente para tu hogar.
+                    <p class="descripcion-huerto" style="font-size: 15px;">
+                        Productos agrícolas de calidad, directamente para tu hogar.
                     </p>
                 </div>
+
+                <!-- Categorías -->
                 <div class="col">
                     <h4 class="titulos">Categorías</h4>
                     <ul>
                         <li><a href="#">Frutas Frescas</a></li>
                         <li><a href="#">Verduras Orgánicas</a></li>
                         <li><a href="#">Frutas Secas</a></li>
-                        <li><a href="#">Productos Lacteos</a></li>
+                        <li><a href="#">Productos Lácteos</a></li>
                     </ul>
                 </div>
-                <div class="col">
 
+                <!-- Contacto -->
+                <div class="col">
                     <h4 class="titulos">Contacto</h4>
                     <ul>
                         <li>Dirección: Emco 4780, San Joaquín, Santiago</li>
@@ -225,19 +222,23 @@
                         <li>Email: info@huertohogar.cl</li>
                     </ul>
                 </div>
+
+                <!-- Suscripción -->
                 <div class="col">
                     <h4 class="titulos">Nutre tu día</h4>
-                    <p class="titulo-correo"> Obtén beneficios por tu suscripción</p>
+                    <p class="titulo-correo">Obtén beneficios por tu suscripción</p>
                     <input type="email" class="form-control" placeholder="Ingresa tu correo electrónico">
                     <button type="button" class="btn btn-success">Suscribirse</button>
                 </div>
+
             </div>
         </div>
     </footer>
 
+    <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SCRIPT JS -->
     <script src="action.js"></script>
-
 </body>
 
 </html>

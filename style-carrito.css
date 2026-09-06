@@ -1,27 +1,25 @@
 /*HEADER*/
-.barraMenu{
-    background-color: #E8F5E9;
-    height: 80px;
+.barraMenu {
+    background-color: #FEF4E7;
 }
 
-.barraMenu .navbar-collapse{
+.barraMenu .navbar-collapse {
     display: flex;
     justify-content: center;
 }
 
 .logo {
     display: flex;
+    align-items: center;
     justify-content: flex-end;
-    height: 60px;
     margin-right: 20px;
-    padding: 10px;
 }
 /*HEADER*/
 
 /*LETRAS FUENTES*/
 /* Fuente principal para todo el sitio */
 body{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 /* Fuente para encabezados y títulos */
@@ -40,13 +38,6 @@ h1, h2, h3, h4, h5, h6, .card-title{
     line-height: 1.8;
 }
 
-.logo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;      /* Centra la imagen adentro del contenedor */
-    max-width: 500px;         /* Limita el ancho del contenedor */
-    margin: 40px auto 20px;
-}
 /*MAIN*/
 
 body {

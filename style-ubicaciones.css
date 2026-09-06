@@ -1,14 +1,16 @@
 /*HEADER*/
-.barraMenu{
-    background-color: #E8F5E9;
+.barraMenu {
+    background-color: #FEF4E7;
 }
 
-.barraMenu .navbar-collapse{
+.barraMenu .navbar-collapse {
     display: flex;
     justify-content: center;
 }
+
 .logo {
     display: flex;
+    align-items: center;
     justify-content: flex-end;
     margin-right: 20px;
 }
@@ -19,7 +21,7 @@
 /*LETRAS FUENTES*/
 /* Fuente principal para todo el sitio */
 body{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 /* Fuente para encabezados y títulos */
