@@ -1,8 +1,91 @@
+// SESIÓN DE USUARIO 
+ // clave de sesión
+ const hhSesionKey = 'hh_sesion';
+ // clave temporal para registro de usuario
+ const hhRegistroTempKey = 'hh_registro';
+
+ function guardarSesion(datos) {
+    localStorage.setItem(hhSesionKey, JSON.stringify(datos));
+ }
+
+ // Verificar si hay una sesión guardada en el localStorage. Si la hay, devuelve los datos de la sesión, si no, devuelve null.
+function obtenerSesion() {
+  const raw = localStorage.getItem(hhSesionKey);
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw);
+  } catch (e) {
+    return null;
+  }
+}
+
+// Cerrar sesión eliminando los datos de la sesión del localStorage.
+function cerrarSesion() {
+  localStorage.removeItem(hhSesionKey);
+}
+
+// Guardar datos temporales de registro de usuario durante el proceso de registro. Esto permite que los datos se mantengan mientras el usuario completa el registro en varias páginas.
+function guardarRegistroTemp(datos) {
+  sessionStorage.setItem(hhRegistroTempKey, JSON.stringify(datos));
+}
+
+// Obtener datos temporales de registro de usuario. Esto permite que los datos se mantengan mientras el usuario completa el registro en varias páginas.
+function obtenerRegistroTemp() {
+  const raw = sessionStorage.getItem(hhRegistroTempKey);
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw);
+  } catch (e) {
+    return null;
+  }
+}
+
+// Limpiar datos temporales de registro de usuario. Esto se puede usar cuando el usuario completa el registro o decide cancelar el proceso.
+function limpiarRegistroTemp() {
+  sessionStorage.removeItem(hhRegistroTempKey);
+}
+
+// Nombre que se muestra en el perfil del usuario a partir del correo electrónico.
+function obtenerNombreUsuario() {
+  const usuario = email.split('@')[0]||email;
+  return usuario
+  .replace(/[._-]+/g, ' ')
+  .split(' ')
+  .filter(Boolean)
+  .map(p => p.charAt(0).toUpperCase() + p.slice(1))
+  .join(' ');
+}
+
+// CAMBIO HEADER - MOSTRAR "PERFIL"
+function actualizarHeaderSesion() {
+  const menu = document.querySelector('.logo.dropdown-menu');
+  if (!menu) return;
+
+  if (sesion) {
+    menu.innerHTML = `
+      <li><a class="dropdown-item" href="Perfil.html">Perfil</a></li>
+      <li><a class="dropdown-item" href="#" id="btnCerrarSesionHeader">Cerrar sesión</a></li>
+    `;
+    const btnSalir = document.getElementById('btnCerrarSesionHeader');
+    if (btnSalir) {
+      btnSalir.addEventListener('click', function (e) {
+        e.preventDefault();
+        hhCerrarSesion();
+        window.location.href = 'Principal.html';
+      });
+    }
+  } else {
+    menu.innerHTML = `
+      <li><a class="dropdown-item" href="Usuario-ingresar.html">Ingresar</a></li>
+      <li><a class="dropdown-item" href="Usuario.html">Crear usuario</a></li>
+    `;
+  }
+}
+
+
 document.addEventListener('DOMContentLoaded', function () {
 
-  // ----------------------------------------------------
-  // 1. PÁGINA 1: Usuario.html (Datos Personales)
-  // ----------------------------------------------------
+// Datos personales
   const formDatosPersonales = document.getElementById('formDatosPersonales');
 
   if (formDatosPersonales) {
@@ -57,9 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
-  // ----------------------------------------------------
-  // 2. PÁGINA 2: Usuario-conf.html (Crear Usuario / Pass)
-  // ----------------------------------------------------
+  // CREAR USUARIO
   const formUsuario = document.getElementById('formUsuario');
 
   if (formUsuario) {
@@ -128,9 +209,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
-  // ----------------------------------------------------
-  // 3. PÁGINA 3: Usuario-ingresar.html (Iniciar Sesión)
-  // ----------------------------------------------------
+  // INICIAR SESIÓN
   const formIngresar = document.getElementById('formIngresar');
 
   if (formIngresar) {
