@@ -97,8 +97,20 @@ h1, h2, h3, h4, h5, h6, .card-title{
     padding: 0 15px;
 }
 
+.tarjetasBlogs .card-noticia .card-title{
+    height: 90px; 
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+.tarjetasBlogs .card-noticia .card-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .tarjetasBlogs .card-noticia{
-    background-color: #f4efe9;
+    background-color: #f6d9b6;
     width: 280px;
     border-radius: 16px;    
 }
@@ -106,6 +118,13 @@ h1, h2, h3, h4, h5, h6, .card-title{
     height: 200px;
     object-fit: cover;
 
+}
+
+.tarjetasBlogs .btn-primary{
+    width: fit-content;                 /*MANTIENE EL BOTON AJUSTADO A SU TEXTO*/
+    background-color: #2E8B57;        /*CAMBIA EL COLOR DE FONDO DEL BOTON*/
+    border-color: #2E8B57;            /*CAMBIA EL COLOR DEL BORDE O CONTORNO DEL BOTON*/
+    color: #ffffff;                   /*CAMBIA EL COLOR DE LAS LETRAS QUE ESTAN DENTRO DEL COLOR*/
 }
 
 
