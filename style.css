@@ -17,8 +17,12 @@
 /*HEADER*/
 
 /*MAIN*/
-
-body{
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -138,31 +142,10 @@ h1, h2, h3, h4, h5, h6, .card-title{
     background-color: #FEF4E7;
     padding: 20px; /* Añade respiro interno para que las cards no peguen al borde */
 }
-
-
-
-
-
 /*MAIN*/
 
 
-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
 /*FOOTER*/
-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
 footer {
     background-color: #2E8B57;
     color: rgb(218, 212, 208);
