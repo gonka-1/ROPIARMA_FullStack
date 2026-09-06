@@ -268,6 +268,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ? sesionPrevia : { nombre : obtenerNombreUsuario(email)};
 
       guardarSesion({...datosBase, email });
+      actualizarHeaderSesion();
 
       // 3. Confirmación de inicio de sesión exitoso y redirección
       alert('¡Bienvenido de nuevo! Has ingresado con éxito.');
