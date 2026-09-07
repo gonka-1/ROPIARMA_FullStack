@@ -1,63 +1,69 @@
-// SESIÓN DE USUARIO 
- // clave de sesión
- const hhSesionKey = 'hh_sesion';
- // clave temporal para registro de usuario
- const hhRegistroTempKey = 'hh_registro';
+// SESIÓN DE USUARIO
 
- function guardarSesion(datos) {
-    localStorage.setItem(hhSesionKey, JSON.stringify(datos));
- }
+// key para la sesión
+const sesionKey = 'sesion';
 
- // Verificar si hay una sesión guardada en el localStorage. Si la hay, devuelve los datos de la sesión, si no, devuelve null.
-function obtenerSesion() {
-  const raw = localStorage.getItem(hhSesionKey);
+// key temporal para registro de usuario
+const registroTempKey = 'registro';
+
+function guardarSesion(datos){
+  localStorage.setItem(sesionKey, JSON.stringify(datos));
+}
+
+// Verificar si hay una sesión guardada en localStorage. 
+// Si la hay, devuelve los datos, si no devuelve null
+function obtenerSesion(){
+  const raw = localStorage.getItem(sesionKey);
   if (!raw) return null;
   try {
     return JSON.parse(raw);
   } catch (e) {
-    return null;
+    return null
   }
 }
 
-// Cerrar sesión eliminando los datos de la sesión del localStorage.
-function cerrarSesion() {
-  localStorage.removeItem(hhSesionKey);
+// Cerrar sesión. Se eliminan los datos del localStorage
+function cerrarSesion(){
+  localStorage.removeItem(sesionKey);
 }
 
-// Guardar datos temporales de registro de usuario durante el proceso de registro. Esto permite que los datos se mantengan mientras el usuario completa el registro en varias páginas.
-function guardarRegistroTemp(datos) {
-  sessionStorage.setItem(hhRegistroTempKey, JSON.stringify(datos));
+//Guardar datos temporales de registro de usuario duranye el proceso de registro. 
+// Permite que los datos se mantengan mientras el usuario completa el registro
+function guardarResgistroTemp(datos) {
+  sessionStorage.setItem(registroTempKey, JSON.stringify(datos));
 }
 
-// Obtener datos temporales de registro de usuario. Esto permite que los datos se mantengan mientras el usuario completa el registro en varias páginas.
-function obtenerRegistroTemp() {
-  const raw = sessionStorage.getItem(hhRegistroTempKey);
+// Obtener datos temporales de registro de usuario y convierte de nuevo en objeto
+function obtenerRegistroTemp(){
+  const raw = sessionStorage.getItem(registroTempKey);
   if (!raw) return null;
   try {
     return JSON.parse(raw);
-  } catch (e) {
-    return null;
+  } catch (e){
+    return null
   }
 }
 
-// Limpiar datos temporales de registro de usuario. Esto se puede usar cuando el usuario completa el registro o decide cancelar el proceso.
-function limpiarRegistroTemp() {
-  sessionStorage.removeItem(hhRegistroTempKey);
+// Limpiar datos temporales de registro de usuario
+function limpiarRegistroTemp(){
+  sessionStorage.removeItem(registroTempKey);
 }
 
-// Nombre que se muestra en el perfil del usuario a partir del correo electrónico.
-function obtenerNombreUsuario(email) {
-  const usuario = email.split('@')[0]||email;
+// Nombre que se muestra en el perfil a partir del correo electrónico a partir de nombre ingresado durante el registro
+function obtenerNombre(nombre) {
+  if (nombre && nombre.trim()) return nombre.trim();
+}
+
+/*  const usuario = email.split('@')[0] || email;
   return usuario
-  .replace(/[._-]+/g, ' ')
-  .split(' ')
-  .filter(Boolean)
-  .map(p => p.charAt(0).toUpperCase() + p.slice(1))
-  .join(' ');
-}
+    .replace(/[._-]+/g, ' ')
+    .split(' ')
+    .filter(Boolean)
+    .map(p => p.charAt(0).toUpperCase() + p.slice(1))
+    .join(' ');*/
 
-// CAMBIO HEADER - MOSTRAR "PERFIL"
-function actualizarHeaderSesion() {
+// CAMBIO DE HEADER AL INGRESAR A LA CUENTA
+function actualizarHeaderSesion(){
   const menu = document.querySelector('.logo.dropdown .dropdown-menu');
   if (!menu) return;
 
@@ -84,24 +90,34 @@ function actualizarHeaderSesion() {
   }
 }
 
+// MOSTRAR / OCULTAR CONTRASEÑA
+function configurarTogglePassword(){
+  const btnToggle = document.getElementById('togglePassword');
+  const passwordInput = document.getElementById('typePassword');
+  const icon = document.getElementById('toggleIcon');
 
-document.addEventListener('DOMContentLoaded', function () {
+  if (!btnToggle || !passwordInput || !icon) return;
 
-  actualizarHeaderSesion();
+  btnToggle.addEventListener('click', function(){
+    const isPassword = passwordInput.type == 'password';
+    passwordInput.type = isPassword ? 'text' : 'password';
+    icon.classList.toggle('bi-eye', !isPassword);
+    icon.classList.toggle('bi-eye-slash', isPassword);
+  })
+}
 
-// Datos personales
-  const formDatosPersonales = document.getElementById('formDatosPersonales');
+document.addEventListener('DOMContentLoaded', function(){
 
   if (formDatosPersonales) {
-    formDatosPersonales.addEventListener('submit', function (e) {
+    formDatosPersonales.addEventListener('submit', function(e){
       e.preventDefault();
 
-      // Validar campos vacíos
+      // Validar datos vacíos
       const campos = formDatosPersonales.querySelectorAll('input, select');
       let esValido = true;
 
       campos.forEach(campo => {
-        if (!campo.value.trim()) {
+        if (!campo.value.trim()){
           campo.classList.add('is-invalid');
           esValido = false;
         } else {
@@ -110,16 +126,16 @@ document.addEventListener('DOMContentLoaded', function () {
       });
 
       if (!esValido) {
-        alert('Por favor, completa todos los campos obligatorios.');
+        alert('Por favor, completa todos los campos obligatorios');
         return;
       }
 
-      // Validar Edad (mayoría de edad)
-      const diaInput = document.getElementById('diaNacimiento');
-      const mesSelect = document.getElementById('mesNacimiento');
-      const anioInput = document.getElementById('anioNacimiento');
+      // Validad edad
+      const diaInput = document.getElementById('diaNacimiento')
+      const mesSelect = document.getElementById('mesNacimiento')
+      const anioInput = document.getElementById('anioNacimiento')
 
-      if (diaInput && mesSelect && anioInput) {
+      if(diaInput && mesSelect && anioInput){
         const dia = parseInt(diaInput.value);
         const mes = parseInt(mesSelect.value);
         const anio = parseInt(anioInput.value);
@@ -127,33 +143,32 @@ document.addEventListener('DOMContentLoaded', function () {
         const fechaNac = new Date(anio, mes, dia);
         const hoy = new Date();
         let edad = hoy.getFullYear() - fechaNac.getFullYear();
-        const diffMeses = hoy.getMonth() - fechaNac.getMonth();
+        const difMeses = hoy.getMonth() - fechaNac.getMonth();
 
-        if (diffMeses < 0 || (diffMeses === 0 && hoy.getDate() < fechaNac.getDate())) {
+        if (difMeses < 0 || (difMeses === 0 && hoy.getDate() < fechaNac.getDate())){
           edad--;
         }
 
-        if (edad < 18) {
-          alert('Debes ser mayor de 18 años para registrarte.');
-          return;
+        if (edad < 18){
+          alert('Debes ser mayor de 18 años para registrarte');
+          return
         }
       }
 
-      const nombre = document.getElementById('typeNombre').value.trim()||'';
-      const apellido = document.getElementById('typeApellido').value.trim()||'';
-      const telefono = document.getElementById('typePhone').value.trim()||'';
-      const comuna = document.getElementById('typeComuna').value.trim()||'';
-      const ciudad = document.getElementById('typeCiudad').value.trim()||'';
-      const region = document.getElementById('typeRegion').value.trim()||'';
-
-      guardarRegistroTemp({nombre, apellido, telefono, comuna, ciudad, region});
-
+      const nombre = document.getElementById('typeNombre').value.trim() || '';
+      const apellido = document.getElementById('typeApellido').value.trim() || '';
+      const telefono = document.getElementById('typePhone').value.trim() || '';
+      const comuna = document.getElementById('typeComuna').value.trim() || '';
+      const ciudad = document.getElementById('typeCiudad').value.trim() || '';
+      const region = document.getElementById('typeRegion').value.trim() || '';
+ 
+      guardarRegistroTemp({ nombre, apellido, telefono, comuna, ciudad, region });
+ 
       window.location.href = 'Usuario-conf.html';
     });
   }
 
-
-  // CREAR USUARIO
+  // CREAR USUARIO  
   const formUsuario = document.getElementById('formUsuario');
 
   if (formUsuario) {
@@ -168,9 +183,9 @@ document.addEventListener('DOMContentLoaded', function () {
       const email = emailInput.value.trim();
       const pass = passInput.value.trim();
 
-      // Validaciones
+      // Validaciones campos vacíos
       if (!email || !pass) {
-        alert('Por favor, ingresa correo y contraseña.');
+        alert('Por favor, ingresa correo y contraseña');
         return;
       }
 
@@ -179,25 +194,25 @@ document.addEventListener('DOMContentLoaded', function () {
       const tieneNumero = /[0-9]/.test(pass);
 
       if (pass.length < 8) {
-        alert('La contraseña debe tener al menos 8 caracteres.');
+        alert('La contraseña debe tener al menos 8 caracteres');
         return;
       }
 
       if (!tieneMinuscula || !tieneMayuscula || !tieneNumero) {
-        alert('La contraseña debe incluir al menos una letra mayúscula, una minúscula y un número.');
+        alert('La contraseña debe incluir al menos una letra mayúscula, una letra minúscula y un número');
         return;
       }
 
       const datosPersonales = obtenerRegistroTemp() || {};
-      guardarSesion({...datosPersonales, email });
+      guardarSesion({...datosPersonales, email});
       limpiarRegistroTemp();
       actualizarHeaderSesion();
 
-      // Toast de Bootstrap o Alerta
-      const toastEl = document.getElementById('toastUsuarioCreado');
-      
-      if (toastEl && typeof bootstrap !== 'undefined') {
-        const toast = new bootstrap.Toast(toastEl);
+      // TOAST DE BOOTSTRAP (alerta)
+      const toastCreado = document.getElementById('toastUsuarioCreado');
+
+      if (toastCreado && typeof bootstrap !== 'undefined') {
+        const toast = new bootstrap.Toast(toastCreado);
         toast.show();
 
         setTimeout(() => {
@@ -208,30 +223,13 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'Principal.html';
       }
     });
-
-    // Mostrar / Ocultar Contraseña
-    const btnToggle = document.getElementById('togglePassword');
-    if (btnToggle) {
-      btnToggle.addEventListener('click', function () {
-        const passInput = document.getElementById('typePassword');
-        const icon = document.getElementById('toggleIcon');
-
-        if (passInput && icon) {
-          const esPassword = passInput.type === 'password';
-          passInput.type = esPassword ? 'text' : 'password';
-          icon.classList.toggle('bi-eye');
-          icon.classList.toggle('bi-eye-slash');
-        }
-      });
-    }
   }
-
 
   // INICIAR SESIÓN
   const formIngresar = document.getElementById('formIngresar');
 
   if (formIngresar) {
-    formIngresar.addEventListener('submit', function (e) {
+    formIngresar.addEventListener('submit', function (e){
       e.preventDefault();
 
       const emailInput = document.getElementById('typeEmail');
@@ -244,36 +242,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // 1. Validar campos vacíos
       if (!email || !pass) {
-        alert('Por favor, ingresa tu correo y contraseña para ingresar.');
+        alert('Por favor, ingresa tu correo y contraseña para ingresar');
         return;
       }
 
-      // 2. Validaciones de la contraseña
+      // 2. Validar contraseña
       const tieneMinuscula = /[a-z]/.test(pass);
       const tieneMayuscula = /[A-Z]/.test(pass);
       const tieneNumero = /[0-9]/.test(pass);
 
       if (pass.length < 8) {
-        alert('La contraseña debe tener al menos 8 caracteres.');
+        alert('La contraseña debe tener al menos 8 caracteres');
         return;
       }
 
       if (!tieneMinuscula || !tieneMayuscula || !tieneNumero) {
-        alert('La contraseña debe incluir al menos una letra mayúscula, una minúscula y un número.');
+        alert('La contraseña debe incluir al menos una letra mayúscula, una letra minúscula y un número');
         return;
       }
 
       const sesionPrevia = obtenerSesion();
+      const registroTemp = obtenerRegistroTemp();
       const datosBase = (sesionPrevia && sesionPrevia.email === email)
-        ? sesionPrevia : { nombre : obtenerNombreUsuario(email)};
+        ? sesionPrevia
+        : { nombre: obtenerNombreUsuario(email, registroTemp && registroTemp.nombre)};
 
-      guardarSesion({...datosBase, email });
+      guardarSesion({...datosBase, email});
       actualizarHeaderSesion();
 
-      // 3. Confirmación de inicio de sesión exitoso y redirección
-      alert('¡Bienvenido de nuevo! Has ingresado con éxito.');
+      // 3. Confirmación de inicio de sesión exitoso y redirección a Principal.html
+      alert('¡Bienvenido de nuevo!')
       window.location.href = 'Principal.html';
     });
   }
-
+  
 });
