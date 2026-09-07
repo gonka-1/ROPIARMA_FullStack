@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- BOOTSTRAP CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <!-- LEAFLET para mapa-->
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <!-- HOJA DE ESTILO -->
     <link rel="stylesheet" href="style-nosotros.css">
     <!-- FUENTES DE GOOGLE -->
@@ -82,17 +84,43 @@
 
     <!-- MAIN -->
     <main>
-        <div class="logoHuerto">
-            <img src="imagenes/LogoHuertoHogar.png" alt="">
+
+        <div class="contenedor-main">
+            <div class="tituloNosotros">
+                
+            
+                <div class="logoHuerto">
+                    <img src="imagenes/LogoHuertoHogar.png" alt="Logo Huerto Hogar">
+                </div>
+                <div class="historia">
+                    <p>Huerto Hogar nació de la unión de cuatro amigos con una visión común: Valentina Martinoli, Matías Vera,
+                    Lucas Pizarro y Jose Daniel Rojo, quien trajo desde Venezuela la fuerza y el amor por la tierra para
+                    echar raíces firmes. En nuestro propio huerto cultivamos de forma natural y consciente, cosechando
+                    alimentos y productos frescos libres de químicos directo de la tierra a tu mesa. A través de este
+                    espacio digital, abrimos las puertas de nuestra cosecha a la comunidad y al mundo, demostrando que
+                    alimentarse sano y conectar con la naturaleza está a solo un clic de distancia.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <div class="card shadow-sm border-0 p-4">
+                        <h3 class="text-center mb-4" style="font-family: 'Playfair Display', serif;">Nuestras Sucursales</h3>
+                        
+                        <!-- Contenedor del Mapa -->
+                        <div id="mapa" class="mb-4 shadow-sm"></div>
+                        
+                        <!-- Controles del Mapa con clases Bootstrap -->
+                        <div class="controles d-flex justify-content-between align-items-center p-3 rounded" style="background-color: transparent;">
+                            <button class="btn-huerto" onclick="cambiarSede(-1)">Anterior</button>
+                            <span id="info-sede" class="texto-huerto">Cargando...</span>
+                            <button class="btn-huerto" onclick="cambiarSede(1)">Siguiente</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div class="historia">
-            <p>Huerto Hogar nació de la unión de cuatro amigos con una visión común: Valentina Martinoli, Matías Vera,
-                Lucas Pizarro y Jose Daniel Rojo, quien trajo desde Venezuela la fuerza y el amor por la tierra para
-                echar raíces firmes. En nuestro propio huerto cultivamos de forma natural y consciente, cosechando
-                alimentos y productos frescos libres de químicos directo de la tierra a tu mesa. A través de este
-                espacio digital, abrimos las puertas de nuestra cosecha a la comunidad y al mundo, demostrando que
-                alimentarse sano y conectar con la naturaleza está a solo un clic de distancia.</p>
-        </div>
+
     </main>
 
     <!-- FOOTER -->
@@ -146,6 +174,12 @@
 
     <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- librería de Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Script Nosotros -->
+    <script src="Nosotros.js"></script>
 </body>
 
 </html>
