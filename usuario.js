@@ -137,6 +137,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   actualizarHeaderSesion();
   configurarTogglePassword();
+  mostrarPerfilUsuario();
 
   // Datos personales
   const formDatosPersonales = document.getElementById('formDatosPersonales');
