@@ -29,7 +29,7 @@ function cerrarSesion(){
 
 //Guardar datos temporales de registro de usuario duranye el proceso de registro. 
 // Permite que los datos se mantengan mientras el usuario completa el registro
-function guardarResgistroTemp(datos) {
+function guardarRegistroTemp(datos) {
   sessionStorage.setItem(registroTempKey, JSON.stringify(datos));
 }
 
@@ -50,17 +50,17 @@ function limpiarRegistroTemp(){
 }
 
 // Nombre que se muestra en el perfil a partir del correo electrónico a partir de nombre ingresado durante el registro
-function obtenerNombre(nombre) {
+function obtenerNombreUsuario(email, nombre) {
   if (nombre && nombre.trim()) return nombre.trim();
-}
 
-/*  const usuario = email.split('@')[0] || email;
+  const usuario = email.split('@')[0] || email;
   return usuario
     .replace(/[._-]+/g, ' ')
     .split(' ')
     .filter(Boolean)
     .map(p => p.charAt(0).toUpperCase() + p.slice(1))
-    .join(' ');*/
+    .join(' ');
+}
 
 // CAMBIO DE HEADER AL INGRESAR A LA CUENTA
 function actualizarHeaderSesion(){
@@ -107,6 +107,12 @@ function configurarTogglePassword(){
 }
 
 document.addEventListener('DOMContentLoaded', function(){
+
+  actualizarHeaderSesion();
+  configurarTogglePassword();
+
+  // Datos personales
+  const formDatosPersonales = document.getElementById('formDatosPersonales');
 
   if (formDatosPersonales) {
     formDatosPersonales.addEventListener('submit', function(e){
@@ -275,5 +281,5 @@ document.addEventListener('DOMContentLoaded', function(){
       window.location.href = 'Principal.html';
     });
   }
-  
+
 });
