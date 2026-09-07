@@ -1,0 +1,200 @@
+/*HEADER*/
+.barraMenu {
+    background-color: #FEF4E7;
+}
+
+.barraMenu .navbar-collapse {
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+.icono-inicio{
+    height: 10px;
+    margin-left: 25px;
+    color: #8B4513;
+}
+/*HEADER*/
+
+
+
+/*MAIN*/
+/* Fuente principal para todo el sitio */
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Raleway', sans-serif;
+    background-color: #FEF4E7;
+}
+
+/* Fuente para encabezados y títulos */
+h1, h2, h3, h4, h5, h6, .card-title{
+    font-family: 'Playfair Display', serif;
+}
+
+
+/*CARDS*/
+.card {
+    height: 550px;
+    background-color: #ffebdbef;
+    border: 1px #FFFAF7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 24px;
+    padding: 10px;
+    /* margin eliminado para evitar conflictos con los espacios de Bootstrap (g-4) */
+    justify-content: space-between;
+}
+
+
+.card-border-hover{
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-border-hover:hover{
+    border-color: rgba(139, 69, 19, 0.692) !important;
+    box-shadow: 0px 0px 10px rgba(112, 57, 2, 0.9) !important;
+    cursor: pointer;
+}
+
+.card-title{
+    color:#333333;
+}
+
+.card-text{
+    color:#666666;
+}
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover; /* Evita que la imagen se deforme */
+    width: 100%;
+}
+
+.contenedor-cards {
+    background-color: #FEF4E7;
+    padding: 20px; /* Añade respiro interno para que las cards no peguen al borde */
+}
+
+.contenedor-cards .row{
+    max-width: 64rem; /*2 cards de 30 rem, evita que queden separadas por espacio vacío*/
+    margin-left: auto;
+    margin-right: auto;
+}
+/*CARDS*/
+
+/* BOTÓN */
+.contenedor-boton {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+}
+
+
+.btn-relieve {
+    background-color: #2E8B57;
+    color: white !important;
+    border-radius: 8px;
+    padding: 10px 20px;
+    border: none;
+
+    /* Sombra inferior oscura */
+    box-shadow: 0 4px 0 #1b5233;
+    transition: all 0.1s ease;
+}
+
+/* Al pasar el cursor */
+.btn-relieve:hover{
+    background-color: #236b43 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #1b5233;
+}
+
+/* Efecto de presionar */
+.btn-relieve:active{
+    background-color: #1b5233 !important;
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #1b5233;
+}
+
+/*MAIN*/
+
+
+/*FOOTER*/
+footer {
+    background-color: #2E8B57;
+    color: rgb(218, 212, 208);
+    padding: 30px 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-contendor {
+    width: 90%;
+    margin: auto;
+}
+
+.footer-contendor .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-contendor .col{
+    text-align: center;
+    flex: 1;
+}
+
+.btn.btn-success {
+    background-color: rgb(188, 198, 188);
+    color: rgb(12, 10, 10);
+    margin-top: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(218, 212, 208);
+}
+.huerto {
+    font-size: 34px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin: 0 0 15px 0;
+}
+
+.descripcion-huerto{
+    font-size: 17px;
+    line-height: 1.6;
+    max-width: 400px;
+    margin: auto;
+}
+
+.titulos{
+    font-weight: bold; 
+    font-size: 25px; 
+    margin-bottom: 5px;
+}
+/*FOOTER*/
