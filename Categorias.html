@@ -6,18 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- BOOTSTRAP CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-    <!-- LEAFLET para mapa-->
-     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <!-- HOJA DE ESTILO -->
-    <link rel="stylesheet" href="style-nosotros.css">
+    <link rel="stylesheet" href="style-productos.css">
     <!-- BOOTSTRAP ÍCONOS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <!-- FUENTES DE GOOGLE -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"rel="stylesheet">
+
     <!-- TÍTULO PESTAÑA -->
-    <title>Nosotros</title>
+    <title>Categorías</title>
 </head>
 
 <!-- BODY -->
@@ -91,43 +90,88 @@
 
     <!-- MAIN -->
     <main>
-
-        <div class="contenedor-main">
-            <div class="tituloNosotros">
-                
-            
-                <div class="logoHuerto">
-                    <img src="imagenes/LogoHuertoHogar.png" alt="Logo Huerto Hogar">
-                </div>
-                <div class="historia">
-                    <p>Huerto Hogar nació de la unión de cuatro amigos con una visión común: Valentina Martinoli, Matías Vera,
-                    Lucas Pizarro y Jose Daniel Rojo, quien trajo desde Venezuela la fuerza y el amor por la tierra para
-                    echar raíces firmes. En nuestro propio huerto cultivamos de forma natural y consciente, cosechando
-                    alimentos y productos frescos libres de químicos directo de la tierra a tu mesa. A través de este
-                    espacio digital, abrimos las puertas de nuestra cosecha a la comunidad y al mundo, demostrando que
-                    alimentarse sano y conectar con la naturaleza está a solo un clic de distancia.</p>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-10">
-                    <div class="card shadow-sm border-0 p-4">
-                        <h3 class="text-center mb-4" style="font-family: 'Playfair Display', serif;">Nuestras Sucursales</h3>
-                        
-                        <!-- Contenedor del Mapa -->
-                        <div id="mapa" class="mb-4 shadow-sm"></div>
-                        
-                        <!-- Controles del Mapa con clases Bootstrap -->
-                        <div class="controles d-flex justify-content-between align-items-center p-3 rounded" style="background-color: transparent;">
-                            <button class="btn-huerto" onclick="cambiarSede(-1)">Anterior</button>
-                            <span id="info-sede" class="texto-huerto">Cargando...</span>
-                            <button class="btn-huerto" onclick="cambiarSede(1)">Siguiente</button>
+        <div class="contenedor">
+            <div class="row row-cols-4 row-cols-md-5 justify-content-start g-3">
+                <!-- Card: CATEGORÍA FRUTAS FRESCAS -->
+                <div class="col-auto d-flex">
+                    <div class="card d-flex flex-column h-100 card-border-hover" style="width: 20rem;">
+                        <img src="imagenes/CategoriaFrutas.png" class="card-img-top" alt="Frutas frescas">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Frutas frescas</h5>
+                            <p class="card-text corta-texto mb-4">
+                                Nuestra selección de frutas frescas ofrece una experiencia directa del campo a
+                                tu hogar. Estas frutas se cultivan y cosechan en el punto óptimo de madurez para asegurar
+                                su sabor y frescura. Disfruta de una variedad de frutas de temporada que aportan vitaminas
+                                y nutrientes esenciales a tu dieta diaria. Perfectas para consumir solas, en ensaladas o como
+                                ingrediente principal en postres y smoothies.
+                            </p>
+                            <div class="contenedor-boton">
+                                <button onclick="window.location.href='Productos-frutas.html'" class="btn btn-relieve">Ver
+                                    Productos</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-        </div>
-
+                <!-- Card: CATEGORÍA VERDURAS ORGÁNICAS -->
+                <div class="col-auto d-flex">
+                    <div class="card d-flex flex-column h-100 card-border-hover" style="width: 20rem;">
+                        <img src="imagenes/CategoriaVerduras.jpg" class="card-img-top" alt="Verduras orgánicas">
+                        <div class="card-body flex-grow-1">
+                            <h5 class="card-title">Verduras Orgánicas</h5>
+                            <p class="card-text corta-texto mb-4">
+                               Descubre nuestra gama de verduras orgánicas, cultivadas sin el uso de
+                                pesticidas ni químicos, garantizando un sabor auténtico y natural. Cada verdura es
+                                seleccionada por su calidad y valor nutricional, ofreciendo una excelente fuente de
+                                vitaminas, minerales y fibra. Ideales para ensaladas, guisos y platos saludables, nuestras
+                                verduras orgánicas promueven una alimentación consciente y sostenible.
+                            </p>
+                            <div class="contenedor-boton">
+                                <button onclick="window.location.href='Productos-verduras.html'" class="btn btn-relieve">Ver
+                                    Productos</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card CATEGORÍA PRODUCTOS ORGÁNICOS -->
+                <div class="col-auto d-flex">
+                    <div class="card d-flex flex-column h-100 card-border-hover" style="width: 20rem;">
+                        <img src="imagenes/CategoriaOrganicos.jpg" class="card-img-top" alt="Productos Organicos">
+                        <div class="card-body flex-grow-1">
+                            <h5 class="card-title">Productos Orgánicos</h5>
+                            <p class="card-text corta-texto mb-4">
+                                Nuestros productos orgánicos están elaborados con ingredientes naturales y
+                                procesados de manera responsable para mantener sus beneficios saludables. Desde aceites
+                                y miel hasta granos y semillas, ofrecemos una selección que apoya un estilo de vida
+                                saludable y respetuoso con el medio ambiente. Estos productos son perfectos para quienes
+                                buscan opciones alimenticias que aporten bienestar sin comprometer el sabor ni la calidad.
+                            </p>
+                            <div class="contenedor-boton">
+                                <button onclick="window.location.href='Productos-organicos.html'" class="btn btn-relieve">Ver
+                                    Productos</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card CATEGORÍA PRODUCTOS LACTEOS -->
+                <div class="col-auto d-flex">
+                    <div class="card d-flex flex-column h-100 card-border-hover" style="width: 20rem;">
+                        <img src="imagenes/CategoriaLacteos.jpg" class="card-img-top" alt="Productos Lacteos">
+                        <div class="card-body flex-grow-1">
+                            <h5 class="card-title">Productos Lacteos</h5>
+                            <p class="card-text corta-texto mb-4">
+                                Los productos lácteos de HuertoHogar provienen de granjas locales que se
+                                dedican a la producción responsable y de calidad. Ofrecemos una gama de leches, yogures
+                                y otros derivados que conservan su frescura y sabor auténtico. Ricos en calcio y nutrientes
+                                esenciales, nuestros lácteos son perfectos para complementar una dieta equilibrada,
+                                proporcionando el mejor sabor y nutrición para toda la familia.
+                            </p>
+                            <div class="contenedor-boton">
+                                <button onclick="window.location.href='Productos-lacteos.html'" class="btn btn-relieve">Ver
+                                    Productos</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
     </main>
 
     <!-- FOOTER -->
@@ -181,14 +225,7 @@
 
     <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- librería de Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    
-    <!-- Script Nosotros -->
-    <script src="Nosotros.js"></script>
-
-     <!-- Script Nosotros -->
+    <!-- SCRIPT JS -->
     <script src="action.js"></script>
     <!-- SCRIPT JS -->
     <script src="usuario.js"></script>

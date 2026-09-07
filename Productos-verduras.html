@@ -6,18 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- BOOTSTRAP CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-    <!-- LEAFLET para mapa-->
-     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <!-- HOJA DE ESTILO -->
-    <link rel="stylesheet" href="style-nosotros.css">
+    <link rel="stylesheet" href="style-productos.css">
     <!-- BOOTSTRAP ÍCONOS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <!-- FUENTES DE GOOGLE -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"rel="stylesheet">
+
     <!-- TÍTULO PESTAÑA -->
-    <title>Nosotros</title>
+    <title>Productos</title>
 </head>
 
 <!-- BODY -->
@@ -91,43 +90,62 @@
 
     <!-- MAIN -->
     <main>
-
-        <div class="contenedor-main">
-            <div class="tituloNosotros">
-                
-            
-                <div class="logoHuerto">
-                    <img src="imagenes/LogoHuertoHogar.png" alt="Logo Huerto Hogar">
-                </div>
-                <div class="historia">
-                    <p>Huerto Hogar nació de la unión de cuatro amigos con una visión común: Valentina Martinoli, Matías Vera,
-                    Lucas Pizarro y Jose Daniel Rojo, quien trajo desde Venezuela la fuerza y el amor por la tierra para
-                    echar raíces firmes. En nuestro propio huerto cultivamos de forma natural y consciente, cosechando
-                    alimentos y productos frescos libres de químicos directo de la tierra a tu mesa. A través de este
-                    espacio digital, abrimos las puertas de nuestra cosecha a la comunidad y al mundo, demostrando que
-                    alimentarse sano y conectar con la naturaleza está a solo un clic de distancia.</p>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-10">
-                    <div class="card shadow-sm border-0 p-4">
-                        <h3 class="text-center mb-4" style="font-family: 'Playfair Display', serif;">Nuestras Sucursales</h3>
-                        
-                        <!-- Contenedor del Mapa -->
-                        <div id="mapa" class="mb-4 shadow-sm"></div>
-                        
-                        <!-- Controles del Mapa con clases Bootstrap -->
-                        <div class="controles d-flex justify-content-between align-items-center p-3 rounded" style="background-color: transparent;">
-                            <button class="btn-huerto" onclick="cambiarSede(-1)">Anterior</button>
-                            <span id="info-sede" class="texto-huerto">Cargando...</span>
-                            <button class="btn-huerto" onclick="cambiarSede(1)">Siguiente</button>
+        <div class="contenedor">
+            <div class="row row-cols-4 row-cols-md-5 justify-content-start g-3">
+                <!-- Card 1: Zanahorias Orgánicas -->
+                <div class="col-auto d-flex">
+                    <div class="card d-flex flex-column h-100 card-border-hover" style="width: 20rem;">
+                        <img src="imagenes/zanahorias.jpg" class="card-img-top" alt="Zanahorias Orgánicas">
+                        <div class="card-body flex-grow-1">
+                            <h5 class="card-title">Zanahorias Orgánicas</h5>
+                            <p class="card-text corta-texto mb-4">
+                                Zanahorias crujientes cultivadas sin pesticidas en la Región de
+                                O'Higgins. Excelente fuente de vitamina A y fibra, ideales para ensaladas, jugos o como
+                                snack saludable.
+                            </p>
+                            <div class="contenedor-boton">
+                                <button onclick="window.location.href='VistaZanahoria.html'" class="btn btn-relieve">Ver
+                                    Producto</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-        </div>
-
+                <!-- Card 2: Espinacas Frescas -->
+                <div class="col-auto d-flex">
+                    <div class="card d-flex flex-column h-100 card-border-hover" style="width: 20rem;">
+                        <img src="imagenes/Espinacas.jpeg" class="card-img-top" alt="Espinacas Frescas">
+                        <div class="card-body flex-grow-1">
+                            <h5 class="card-title">Espinacas Frescas</h5>
+                            <p class="card-text corta-texto mb-4">
+                                Espinacas frescas y nutritivas, perfectas para ensaladas y batidos
+                                verdes. Estas espinacas son cultivadas bajo prácticas orgánicas que garantizan su
+                                calidad y valor nutricional.
+                            </p>
+                            <div class="contenedor-boton">
+                                <button onclick="window.location.href='VistaEspinaca.html'" class="btn btn-relieve">Ver
+                                    Producto</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3: Pimientos -->
+                <div class="col-auto d-flex">
+                    <div class="card d-flex flex-column h-100 card-border-hover" style="width: 20rem;">
+                        <img src="imagenes/Pimientos.jpeg" class="card-img-top" alt="Pimientos">
+                        <div class="card-body flex-grow-1">
+                            <h5 class="card-title">Pimientos</h5>
+                            <p class="card-text corta-texto mb-4">
+                                Pimientos rojos, amarillos y verdes, ideales para salteados y platos
+                                coloridos. Ricos en antioxidantes y vitaminas, estos pimientos añaden un toque vibrante
+                                y saludable a cualquier receta.
+                            </p>
+                            <div class="contenedor-boton">
+                                <button onclick="window.location.href='VistaPimiento.html'" class="btn btn-relieve">Ver
+                                    Producto</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
     </main>
 
     <!-- FOOTER -->
@@ -181,14 +199,7 @@
 
     <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- librería de Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    
-    <!-- Script Nosotros -->
-    <script src="Nosotros.js"></script>
-
-     <!-- Script Nosotros -->
+    <!-- SCRIPT JS -->
     <script src="action.js"></script>
     <!-- SCRIPT JS -->
     <script src="usuario.js"></script>
