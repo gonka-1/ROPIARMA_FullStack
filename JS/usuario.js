@@ -102,8 +102,11 @@ function mostrarPerfilUsuario(){
   const sesion = obtenerSesion();
   if (!sesion) return;
 
+  // Mostrar nombre completo en el perfil
+  const nombreCompleto = [sesion.nombre, sesion.apellido].filter(Boolean).join(' ')
+
   const campos = {
-    nombreUsuarioPerfil: sesion.nombre,
+    nombreUsuarioPerfil: nombreCompleto || sesion.nombre,
     emailUsuarioPerfil: sesion.email,
     telefonoUsuarioPerfil: sesion.telefono,
     comunaUsuarioPerfil: sesion.comuna,
@@ -114,6 +117,90 @@ function mostrarPerfilUsuario(){
   Object.entries(campos).forEach(([id, valor]) => {
     const el = document.getElementById(id);
     if (el) el.textContent = valor || '-';
+  });
+}
+
+// UBICACIÓN: REGIÓN -> CIUDAD (PROVINCIA) -> COMUNA
+// Cada región tiene un objeto de ciudades, y cada ciudad un arreglo de comunas
+const UBICACIONES = {
+  Metropolitana: {
+    'Santiago': ['Santiago', 'Cerrillos', 'Cerro Navia', 'Conchalí', 'El Bosque', 'Estación Central', 'Huechuraba', 'Independencia', 'La Cisterna', 'La Florida', 'La Granja', 'La Pintana', 'La Reina', 'Las Condes', 'Lo Barnechea', 'Lo Espejo', 'Lo Prado', 'Macul', 'Maipú', 'Ñuñoa', 'Pedro Aguirre Cerda', 'Peñalolén', 'Providencia', 'Pudahuel', 'Quilicura', 'Quinta Normal', 'Recoleta', 'Renca', 'San Joaquín', 'San Miguel', 'San Ramón', 'Vitacura'],
+    'Puente Alto': ['Puente Alto', 'Pirque', 'San José de Maipo'],
+    'Colina': ['Colina', 'Lampa', 'Tiltil'],
+    'San Bernardo': ['San Bernardo', 'Buin', 'Calera de Tango', 'Paine'],
+    'Melipilla': ['Melipilla', 'Alhué', 'Curacaví', 'María Pinto', 'San Pedro'],
+    'Talagante': ['Talagante', 'El Monte', 'Isla de Maipo', 'Padre Hurtado', 'Peñaflor']
+  },
+  'Valparaíso': {
+    'Valparaíso': ['Valparaíso', 'Viña del Mar', 'Concón', 'Quintero', 'Puchuncaví', 'Casablanca', 'Juan Fernández'],
+    'Quilpué': ['Quilpué', 'Villa Alemana', 'Limache', 'Olmué'],
+    'San Antonio': ['San Antonio', 'Cartagena', 'El Tabo', 'El Quisco', 'Algarrobo', 'Santo Domingo'],
+    'Quillota': ['Quillota', 'La Cruz', 'La Calera', 'Hijuelas', 'Nogales'],
+    'La Ligua': ['La Ligua', 'Cabildo', 'Papudo', 'Petorca', 'Zapallar'],
+    'San Felipe': ['San Felipe', 'Catemu', 'Llaillay', 'Panquehue', 'Putaendo', 'Santa María'],
+    'Los Andes': ['Los Andes', 'Calle Larga', 'Rinconada', 'San Esteban'],
+    'Isla de Pascua': ['Isla de Pascua']
+  },
+  'Biobío': {
+    'Concepción': ['Concepción', 'Talcahuano', 'Chiguayante', 'Coronel', 'Florida', 'Hualqui', 'Lota', 'Penco', 'San Pedro de la Paz', 'Santa Juana', 'Tomé', 'Hualpén'],
+    'Los Ángeles': ['Los Ángeles', 'Antuco', 'Cabrero', 'Laja', 'Mulchén', 'Nacimiento', 'Negrete', 'Quilaco', 'Quilleco', 'San Rosendo', 'Santa Bárbara', 'Tucapel', 'Yumbel', 'Alto Biobío'],
+    'Lebu': ['Lebu', 'Arauco', 'Cañete', 'Contulmo', 'Curanilahue', 'Los Álamos', 'Tirúa']
+  },
+  'Araucanía': {
+    'Temuco': ['Temuco', 'Carahue', 'Cholchol', 'Cunco', 'Curarrehue', 'Freire', 'Galvarino', 'Gorbea', 'Lautaro', 'Loncoche', 'Melipeuco', 'Nueva Imperial', 'Padre Las Casas', 'Perquenco', 'Pitrufquén', 'Pucón', 'Saavedra', 'Teodoro Schmidt', 'Toltén', 'Vilcún', 'Villarrica'],
+    'Angol': ['Angol', 'Collipulli', 'Curacautín', 'Ercilla', 'Lonquimay', 'Los Sauces', 'Lumaco', 'Purén', 'Renaico', 'Traiguén', 'Victoria']
+  },
+  'Los Lagos': {
+    'Puerto Montt': ['Puerto Montt', 'Calbuco', 'Cochamó', 'Fresia', 'Frutillar', 'Llanquihue', 'Los Muermos', 'Maullín', 'Puerto Varas'],
+    'Osorno': ['Osorno', 'Puerto Octay', 'Purranque', 'Puyehue', 'Río Negro', 'San Juan de la Costa', 'San Pablo'],
+    'Castro': ['Castro', 'Ancud', 'Chonchi', 'Curaco de Vélez', 'Dalcahue', 'Puqueldón', 'Queilén', 'Quellón', 'Quemchi', 'Quinchao'],
+    'Chaitén': ['Chaitén', 'Futaleufú', 'Hualaihué', 'Palena']
+  }
+};
+
+// Reemplaza las <option> de un <select>, dejando la primera como placeholder deshabilitado
+function llenarSelect(select, opciones, textoPlaceholder){
+  select.innerHTML = '';
+
+  const placeholder = document.createElement('option');
+  placeholder.value = '';
+  placeholder.selected = true;
+  placeholder.disabled = true;
+  placeholder.textContent = textoPlaceholder;
+  select.appendChild(placeholder);
+
+  opciones.forEach(valor => {
+    const option = document.createElement('option');
+    option.value = valor;
+    option.textContent = valor;
+    select.appendChild(option);
+  });
+}
+
+// CASCADA REGIÓN -> CIUDAD -> COMUNA
+function configurarSelectsUbicacion(){
+  const regionSelect = document.getElementById('typeRegion');
+  const ciudadSelect = document.getElementById('typeCiudad');
+  const comunaSelect = document.getElementById('typeComuna');
+
+  if (!regionSelect || !ciudadSelect || !comunaSelect) return;
+
+  regionSelect.addEventListener('change', function(){
+    const ciudades = UBICACIONES[this.value] ? Object.keys(UBICACIONES[this.value]) : [];
+
+    llenarSelect(ciudadSelect, ciudades, 'Selecciona una ciudad');
+    llenarSelect(comunaSelect, [], 'Primero selecciona una ciudad');
+
+    ciudadSelect.disabled = ciudades.length === 0;
+    comunaSelect.disabled = true;
+  });
+
+  ciudadSelect.addEventListener('change', function(){
+    const region = regionSelect.value;
+    const comunas = (UBICACIONES[region] && UBICACIONES[region][this.value]) || [];
+
+    llenarSelect(comunaSelect, comunas, 'Selecciona una comuna');
+    comunaSelect.disabled = comunas.length === 0;
   });
 }
 
@@ -138,6 +225,7 @@ document.addEventListener('DOMContentLoaded', function(){
   actualizarHeaderSesion();
   configurarTogglePassword();
   mostrarPerfilUsuario();
+  configurarSelectsUbicacion();
 
   // Datos personales
   const formDatosPersonales = document.getElementById('formDatosPersonales');
@@ -223,12 +311,30 @@ document.addEventListener('DOMContentLoaded', function(){
         return;
       }
 
+      // Validar formato de correo (usuario@dominio.extensión)
+      const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!emailValido) {
+        alert('Por favor, ingresa un correo electrónico válido (ejemplo: nombre@dominio.com)');
+        return;
+      }
+
       const tieneMinuscula = /[a-z]/.test(pass);
       const tieneMayuscula = /[A-Z]/.test(pass);
       const tieneNumero = /[0-9]/.test(pass);
+      const tieneEspacios = /\s/.test(pass);
 
       if (pass.length < 8) {
         alert('La contraseña debe tener al menos 8 caracteres');
+        return;
+      }
+
+      if (pass.length > 16) {
+        alert('La contraseña no puede tener más de 16 caracteres');
+        return;
+      }
+
+      if (tieneEspacios) {
+        alert('La contraseña no puede contener espacios');
         return;
       }
 
@@ -280,13 +386,31 @@ document.addEventListener('DOMContentLoaded', function(){
         return;
       }
 
-      // 2. Validar contraseña
+      // 2. Validar formato de correo (usuario@dominio.extensión)
+      const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!emailValido) {
+        alert('Por favor, ingresa un correo electrónico válido (ejemplo: nombre@dominio.com)');
+        return;
+      }
+
+      // 3. Validar contraseña
       const tieneMinuscula = /[a-z]/.test(pass);
       const tieneMayuscula = /[A-Z]/.test(pass);
       const tieneNumero = /[0-9]/.test(pass);
+      const tieneEspacios = /\s/.test(pass);
 
       if (pass.length < 8) {
         alert('La contraseña debe tener al menos 8 caracteres');
+        return;
+      }
+
+      if (pass.length > 16) {
+        alert('La contraseña no puede tener más de 16 caracteres');
+        return;
+      }
+
+      if (tieneEspacios) {
+        alert('La contraseña no puede contener espacios');
         return;
       }
 

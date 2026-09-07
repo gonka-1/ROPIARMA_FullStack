@@ -16,8 +16,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"rel="stylesheet">
     <!-- TÍTULO PESTAÑA -->
      <title>Crear usuario</title>
-    <!-- SCRIPT USUARIO PARA ACTUALIZAR HEADER -->
-    <script src="usuario.js"></script>
 </head>
 
 <!-- BODY -->
@@ -183,36 +181,32 @@
                             <input type="tel" id="typePhone" class="form-control" placeholder="9 1234 5678" required />
                         </div>
                     </div>
-                    <!-- COMUNA -->
-                    <div class="mb-3">
-                        <label class="form-label" for="typeComuna">Comuna</label>
-                        <select class="form-select" id="typeComuna" required>
-                            <option value="" selected disabled>Selecciona una comuna</option>
-                            <option value="Santiago">Santiago</option>
-                            <option value="Concepción">Concepción</option>
-                            <option value="Valparaíso">Valparaíso</option>
-                        </select>
-                    </div>
-                    <!-- CIUDAD -->
-                    <div class="mb-3">
-                        <label class="form-label" for="typeCiudad">Ciudad</label>
-                        <select class="form-select" id="typeCiudad" required>
-                            <option value="" selected disabled>Selecciona una ciudad</option>
-                            <option value="Santiago">Santiago</option>
-                            <option value="Concepción">Concepción</option>
-                            <option value="Valparaíso">Valparaíso</option>
-                        </select>
-                    </div>
                     <!-- REGIÓN -->
                     <div class="mb-3">
                         <label class="form-label" for="typeRegion">Región</label>
                         <select class="form-select" id="typeRegion" required>
                             <option value="" selected disabled>Selecciona una región</option>
-                            <option value="Metropolitana">Región Metropolitana</option>
+                            <option value="Valparaíso">Región de Valaparaíso</option>
+                            <option value="Metropolitana">Región Metropolitana de Santiago</option>
                             <option value="Biobío">Región del Biobío</option>
-                            <option value="Valparaíso">Región de Valparaíso</option>
+                            <option value="Araucanía">Región de la Araucanía</option>
+                            <option value="Los Lagos">Región de Los Lagos</option>
                         </select>
                     </div>
+                    <!-- CIUDAD (se llena en JS según la región elegida) -->
+                     <div class="mb-3">
+                        <label class="form-label" for="typeCiudad">Provincia</label>
+                        <select class="form-select" id="typeCiudad" required>
+                            <option value="" selected disabled>Primero selecciona una región</option>
+                        </select>
+                     </div>
+                     <!-- COMUNA (se llena en JS según la ciudad elegida) -->
+                     <div class="mb-3">
+                        <label class="form-label" for="typeComuna">Comuna</label>
+                        <select class="form-select" id="typeComuna" required>
+                            <option value="" selected disabled>Primero selecciona una ciudad</option>
+                        </select>
+                     </div>
                     <!-- BOTÓN DE SUBMIT -->
                     <div class="contenedor-boton">
                         <button type="submit" class="btn btn-relieve">Confirmar</button>

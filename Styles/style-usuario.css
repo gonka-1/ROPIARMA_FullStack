@@ -99,13 +99,13 @@ footer {
     margin: auto;
 }
 
-.row {
+.footer-contendor .row {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
 }
 
-.col {
+.footer-contendor .col {
     text-align: center;
     flex: 1;
 }
