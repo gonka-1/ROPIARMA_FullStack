@@ -90,6 +90,26 @@ function actualizarHeaderSesion(){
   }
 }
 
+// MOSTRAR DATOS DE LA CUENTA EN LA VISTA "PERFIL"
+function mostrarPerfilUsuario(){
+  const sesion = obtenerSesion();
+  if (!sesion) return;
+
+  const campos = {
+    nombreUsuarioPerfil: sesion.nombre,
+    emailUsuarioPerfil: sesion.email,
+    telefonoUsuarioPerfil: sesion.telefono,
+    comunaUsuarioPerfil: sesion.comuna,
+    ciudadUsuarioPerfil: sesion.ciudad,
+    regionUsuarioPerfil: sesion.region
+  };
+
+  Object.entries(campos).forEach(([id, valor]) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = valor || '-';
+  });
+}
+
 // MOSTRAR / OCULTAR CONTRASEÑA
 function configurarTogglePassword(){
   const btnToggle = document.getElementById('togglePassword');

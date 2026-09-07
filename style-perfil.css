@@ -45,6 +45,74 @@ h1, h2, h3, h4, h5, h6, .card-title{
     width: 400px;     /* Ajusta el ancho según lo que necesites */
     height: auto;     /* Mantiene la proporción original de la imagen */
 }
+
+/* CARDS */
+.card-perfil {
+    background-color: #ffeee0;
+    height: auto;
+    min-height: 100px;
+    max-width: 600px;
+    align-items: stretch;
+    justify-content: flex-start;
+    border: 1px solid #ffeee0;
+    margin: 0 auto;
+}
+
+.card-perfil .card-title {
+    font-size: 2rem;
+}
+
+.card-perfil .card-subtitle {
+    font-size: 1.1rem;
+}
+
+.card-perfil .list-group{
+    width: 100%;
+}
+
+.card-perfil .list-group-item{
+    background-color: transparent;
+    font-size: 1.15rem;
+    height: 100px;
+    padding: 1rem 1.25rem;
+}
+
+.boton {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.btn-relieve {
+    background-color: #2E8B57;
+    color: white !important;
+    border-radius: 8px;
+    padding: 10px 20px;
+    border: none;
+    margin-top: 5px;
+    margin-bottom: 30px;
+
+    /* Sombra inferior oscura */
+    box-shadow: 0 4px 0 #1b5233;
+    transition: all 0.1s ease;
+}
+
+/* Al pasar el cursor */
+.btn-relieve:hover{
+    background-color: #236b43 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #1b5233;
+}
+
+/* Efecto de presionar */
+.btn-relieve:active{
+    background-color: #1b5233 !important;
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #1b5233;
+}
+
 /*MAIN*/
 
 /*FOOTER*/

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- HEAD -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +12,15 @@
     <!-- FUENTES DE GOOGLE -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <!-- TÍTULO PESTAÑA -->
     <title>Perfil</title>
 </head>
 
 <!-- BODY  -->
+
 <body>
     <!-- HEADER -->
     <header>
@@ -82,8 +86,39 @@
 
     <!-- MAIN -->
     <main>
+        <div class="card card-perfil">
+            <div class="card-body">
+                <h5 class="card-title" id="nombreUsuarioPerfil">Nombre Usuario</h5>
+                <p class="card-subtitle text-muted mb-3" id="emailUsuarioPerfil">correo@ejemplo.com</p>
+            </div>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Teléfono</span>
+                    <span id="telefonoUsuarioPerfil" class="text-muted">—</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Comuna</span>
+                    <span id="comunaUsuarioPerfil" class="text-muted">—</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Ciudad</span>
+                    <span id="ciudadUsuarioPerfil" class="text-muted">—</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Región</span>
+                    <span id="regionUsuarioPerfil" class="text-muted">—</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="boton">
+            <button type="button" class="btn btn-relieve">Editar datos</button>
+        </div>
+
 
     </main>
+
 
     <!-- FOOTER -->
     <footer>
@@ -137,10 +172,11 @@
     <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <!-- SCRIPT JS -->
-     <script src="usuario.js"></script>
+    <script src="usuario.js"></script>
 </body>
 
 </html>
-    
+
 </body>
+
 </html>
