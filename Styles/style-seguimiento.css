@@ -22,6 +22,18 @@
 }
 /*HEADER*/
 
+/*LETRAS FUENTES*/
+/* Fuente principal para todo el sitio */
+body{
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Fuente para encabezados y títulos */
+h1, h2, h3, h4, h5, h6, .card-title{
+    font-family: 'Playfair Display', serif;
+}
+/*LETRAS FUENTES*/
+
 /*MAIN*/
 
 .contenedor-principal-seguimiento {
