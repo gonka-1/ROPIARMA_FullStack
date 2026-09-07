@@ -256,8 +256,9 @@ function actualizarContadorCarrito(){
     var totalProductos = 0;
     lista.forEach(item => totalProductos += (item.cantidad || 1));
 
-    contador.textContent = totalProductos || "";
-    contador.style.display = totalProductos > 0 ? "inline-block": "none";
+    contador.textContent = totalProductos;
+    contador.style.display = "inline-block";
+
 
 }
 
@@ -268,3 +269,79 @@ if (document.getElementById("contenedorProductos")) {
 }
 
 /*CARRITO*/
+
+/*RESEÑAS*/
+
+const productId = mapaProductos[nombreArchivo];
+
+// 1. Dibujar las reseñas guardadas en la pantalla
+function mostrarResenas() {
+    if(!productId) return;
+
+    const todas = JSON.parse(localStorage.getItem('resenas')) || {};
+    const lista = todas[productId] || [];
+    const contenedor = document.getElementById('reviews-list');
+
+    // Limpiar lista antes de actualizar
+    contenedor.innerHTML = '';
+
+    if (lista.length === 0) {
+        contenedor.innerHTML = '<p>Sin opiniones aún.</p>';
+        document.getElementById('avg-rating').textContent = '0.0';
+        document.getElementById('avg-stars').textContent = '☆☆☆☆☆';
+        document.getElementById('total-reviews').textContent = '0';
+        return;
+    }
+
+    // Calcular promedio de estrellas
+    let suma = 0;
+    lista.forEach(r => suma += Number(r.rating));
+    const promedio = (suma / lista.length).toFixed(1);
+
+    // Actualizar resumen visual
+    document.getElementById('avg-rating').textContent = promedio;
+    document.getElementById('avg-stars').textContent = '★'.repeat(Math.round(promedio)) + '☆'.repeat(5 - Math.round(promedio));
+    document.getElementById('total-reviews').textContent = lista.length;
+
+    // Insertar cada reseña en el HTML
+    lista.forEach(r => {
+        contenedor.innerHTML += `
+      <div class="tarjeta-resena">
+        <div class="encabezado-resena">
+          <span class="autor-resena">${r.author}</span>
+          <span class="estrellas">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</span>
+        </div>
+        <p class="comentario-texto">${r.comment}</p>
+        <span class="fecha-resena">${r.date}</span>
+      </div>
+    `;
+    });
+}
+
+// 2. Guardar nueva reseña al enviar el formulario
+document.getElementById('review-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const nueva = {
+        author: document.getElementById('review-author').value,
+        rating: document.getElementById('review-rating').value,
+        comment: document.getElementById('review-comment').value,
+        date: new Date().toLocaleDateString()
+    };
+
+    // Obtener objeto actual de localStorage y guardar
+    const todas = JSON.parse(localStorage.getItem('resenas')) || {};
+    if (!todas[productId]) todas[productId] = [];
+
+    todas[productId].unshift(nueva);
+    localStorage.setItem('resenas', JSON.stringify(todas));
+
+    // Limpiar formulario y recargar lista
+    e.target.reset();
+    mostrarResenas();
+});
+
+// 3. Cargar al abrir la página
+mostrarResenas();
+
+/*RESEÑAS*/

@@ -1,0 +1,139 @@
+/*HEADER*/
+.barraMenu {
+    background-color: #FEF4E7;
+}
+
+.barraMenu .navbar-collapse {
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+/*HEADER*/
+
+/*MAIN*/
+
+.contenedor-principal-seguimiento {
+    max-width: 800px;
+  min-height: 55vh; /* Empuja el footer hacia abajo sin fijar una altura rígida */
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.titulo-seguimiento {
+  font-family: 'Playfair Display', serif;
+  color: #2E8B57;
+}
+.tarjeta-buscador {
+  background-color: #FAFAFA;
+}
+
+.input-seguimiento {
+  border-color: #2E8B57;
+}
+
+.btn-seguimiento {
+  background-color: #2E8B57;
+  color: #FFFFFF;
+}
+
+.btn-seguimiento:hover {
+  background-color: #246B43;
+  color: #FFFFFF;
+}
+
+.id-pedido {
+  color: #2E8B57;
+}
+
+.badge-estado {
+  background-color: #2E8B57;
+}
+
+.contenedor-progreso {
+  height: 10px;
+  background-color: #E9ECEF;
+}
+
+.barra-progreso-fill {
+  background-color: #2E8B57;
+  width: 0%;
+}
+
+.subtitulo-seguimiento {
+  color: #2E8B57;
+}
+
+
+
+/*MAIN*/
+
+/*FOOTER*/
+footer {
+    background-color: #2E8B57;
+    color: rgb(218, 212, 208);
+    padding: 30px 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-contendor {
+    width: 90%;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.col {
+    text-align: center;
+    flex: 1;
+}
+
+.btn.btn-success {
+    background-color: rgb(188, 198, 188);
+    color: rgb(12, 10, 10);
+    margin-top: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(218, 212, 208);
+}
+.huerto {
+    font-size: 34px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin: 0 0 15px 0;
+}
+
+.descripcion-huerto{
+    font-size: 17px;
+    line-height: 1.6;
+    max-width: 400px;
+    margin: auto;
+}
+
+.titulos{
+    font-weight: bold; 
+    font-size: 25px; 
+    margin-bottom: 5px;
+}
+/*FOOTER*/

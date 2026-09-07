@@ -9,8 +9,8 @@
     <!-- HOJA DE ESTILO -->
     <link rel="stylesheet" href="style-vistaProducto.css">
     <!-- FUENTES DE GOOGLE -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"rel="stylesheet">
     <!-- TÍTULO PESTAÑA -->
     <title>Espinaca</title>
@@ -194,13 +194,56 @@
                 </div>
                 <div class="col-2">
                     <div class="card" style="width: 200px;">
-                        <img height="150px" src="ver2imagenes/leche.jpg" class="card-img-top" alt="...">
+                        <img height="150px" src="imagenes/leche entera.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Leche</h5>
                             <a href="VistaLeche.html" class="btn btn-relieve">Ver Producto</a>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+         <!-- Sección de Reseñas -->
+        <div class="reviews-section my-5 p-4 bg-white rounded shadow-sm">
+            <h4 class="fw-bold mb-3">Opiniones de nuestros clientes</h4>
+
+            <!-- Promedio y resumen -->
+            <div class="d-flex align-items-center mb-4">
+                <div class="display-6 fw-bold me-3 text-rating-number numeros" id="avg-rating">0.0</div>
+                <div>
+                    <div id="avg-stars" class="fs-5 stars-color color-estrellas">☆☆☆☆☆</div>
+                    <small class="text-muted"><span id="total-reviews">0</span> reseñas en total</small>
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- Formulario para agregar reseña -->
+            <form id="review-form" class="mb-4">
+                <h6 class="fw-bold">Deja tu comentario</h6>
+                <div class="mb-2">
+                    <label class="form-label mb-1">Calificación:</label>
+                    <select id="review-rating" class="form-select w-auto" required>
+                        <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+                        <option value="4">⭐⭐⭐⭐ (4/5)</option>
+                        <option value="3">⭐⭐⭐ (3/5)</option>
+                        <option value="2">⭐⭐ (2/5)</option>
+                        <option value="1">⭐ (1/5)</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <input type="text" id="review-author" class="form-control" placeholder="Tu nombre" required>
+                </div>
+                <div class="mb-2">
+                    <textarea id="review-comment" class="form-control" rows="3" placeholder="¿Qué te pareció este producto?"
+                        required></textarea>
+                </div>
+                <button type="submit" class="btn btn-review-submit btn-review">Publicar reseña</button>
+            </form>
+
+            <!-- Lista de comentarios -->
+            <div id="reviews-list" class="d-flex flex-column gap-3">
+                <!-- Se puebla dinámicamente con JS -->
             </div>
         </div>
     </main>
@@ -258,6 +301,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <!-- SCRIPT JS -->
     <script src="action.js"></script>
+    <!-- SCRIPT JS -->
+    <script src="usuario.js"></script>
 </body>
 
 </html>

@@ -70,8 +70,15 @@ function actualizarHeaderSesion(){
   const sesion = obtenerSesion();
 
   if (sesion) {
+
+    const nombreUsuario = sesion.nombre || obtenerNombreUsuario(sesion.email, '');
+
     menu.innerHTML = `
+     <li class="dropdown-header text-dark fw-bold border-bottom pb-2 mb-1">
+        👤 ${nombreUsuario}
+      </li>
       <li><a class="dropdown-item" href="Perfil.html">Perfil</a></li>
+      <li><a class="dropdown-item" href="seguimiento.html">Mis pedidos</a></li>
       <li><a class="dropdown-item" href="#" id="btnCerrarSesionHeader">Cerrar sesión</a></li>
     `;
     const btnSalir = document.getElementById('btnCerrarSesionHeader');

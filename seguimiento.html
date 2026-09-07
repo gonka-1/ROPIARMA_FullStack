@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- HEAD -->
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- BOOTSTRAP CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-    <!-- HOJA DE ESTILO -->
-    <link rel="stylesheet" href="style-perfil.css">
+    <!-- HOJAS DE ESTILO -->
+    <link rel="stylesheet" href="style-seguimiento.css">
     <!-- FUENTES DE GOOGLE -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"rel="stylesheet">
     <!-- TÍTULO PESTAÑA -->
-    <title>Perfil</title>
+    <title>Huerto Hogar</title>
+    <!-- SCRIPT USUARIO PARA ACTUALIZAR HEADER -->
+    <script src="usuario.js"></script>
 </head>
 
-<!-- BODY  -->
-
+<!-- BODY -->
 <body>
     <!-- HEADER -->
     <header>
@@ -45,9 +43,6 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="Blogs.html">Blogs</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="seguimiento.html">Seguimiento</a>
                             </li>
                         </ul>
                     </div>
@@ -88,39 +83,71 @@
     </header>
 
     <!-- MAIN -->
-    <main>
-        <div class="card card-perfil">
-            <div class="card-body">
-                <h5 class="card-title" id="nombreUsuarioPerfil">Nombre Usuario</h5>
-                <p class="card-subtitle text-muted mb-3" id="emailUsuarioPerfil">correo@ejemplo.com</p>
+        <main class="container my-5 contenedor-principal-seguimiento">
+            
+            <!-- Título de la Sección -->
+            <div class="text-center mb-5">
+                <h2 class="fw-bold display-6 titulo-seguimiento">Seguimiento de Pedido</h2>
+                <p class="text-muted">Consulta el estado de tu compra en tiempo real ingresando tu código de pedido</p>
             </div>
 
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Teléfono</span>
-                    <span id="telefonoUsuarioPerfil" class="text-muted">—</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Comuna</span>
-                    <span id="comunaUsuarioPerfil" class="text-muted">—</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Ciudad</span>
-                    <span id="ciudadUsuarioPerfil" class="text-muted">—</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Región</span>
-                    <span id="regionUsuarioPerfil" class="text-muted">—</span>
-                </li>
-            </ul>
-        </div>
+            <!-- Buscador de Pedido -->
+            <div class="card border-0 shadow-sm p-4 mb-4 rounded-4 tarjeta-buscador">
+                <form id="formSeguimiento">
+                    <label for="inputCodigo" class="form-label fw-bold text-dark">Código de Seguimiento:</label>
+                    <div class="input-group input-group-lg">
+                        <input type="text" id="inputCodigo" class="form-control input-seguimiento" placeholder="Ej: HH-1001" required>
+                        <button class="btn fw-bold px-4 btn-seguimiento" type="submit">Buscar</button>
+                    </div>
+                    <small class="text-muted mt-2 d-block">Códigos de prueba: <b>HH-1001</b> (En camino) o <b>HH-1002</b> (En preparación)</small>
+                </form>
+            </div>
 
-        <div class="boton">
-            <button type="button" class="btn btn-relieve">Editar datos</button>
-        </div>
+            <!-- Ficha de Resultado -->
+            <div id="resultadoSeguimiento" class="card border-0 shadow-sm p-4 rounded-4 d-none">
+                
+                <!-- Encabezado de la Compra -->
+                <div class="d-flex justify-content-between align-items-center flex-wrap border-bottom pb-3 mb-3">
+                    <div>
+                        <h5 class="fw-bold mb-1 id-pedido">Pedido: <span id="idPedidoTexto"></span></h5>
+                        <span id="fechaPedido" class="text-muted small">Realizado hoy</span>
+                    </div>
+                    <span id="badgeEstado" class="badge rounded-pill fs-6 px-3 py-2 mt-2 mt-sm-0 badge-estado"></span>
+                </div>
 
+                <!-- Datos del Cliente y Envío -->
+                <div class="row g-3 mb-4 text-dark">
+                    <div class="col-sm-6">
+                        <p class="mb-1 text-muted small">Cliente:</p>
+                        <strong id="nombreCliente">---</strong>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-1 text-muted small">Dirección de entrega:</p>
+                        <strong id="direccionCliente">---</strong>
+                    </div>
+                </div>
 
-    </main>
+                <!-- Línea de Tiempo del Envío -->
+                <h6 class="fw-bold mb-3 subtitulo-seguimiento">Progreso de Envío</h6>
+                <div class="progress mb-3 contenedor-progreso">
+                    <div id="barraProgreso" class="progress-bar progress-bar-striped progress-bar-animated barra-progreso-fill" role="progressbar"></div>
+                </div>
+
+                <!-- Estados del Proceso -->
+                <div class="d-flex justify-content-between text-center small text-muted mt-2">
+                    <div>Recibido</div>
+                    <div>Preparando</div>
+                    <div>En Camino</div>
+                    <div>Entregado</div>
+                </div>
+            </div>
+
+            <!-- Mensaje de Error (Inicialmente Oculto) -->
+            <div id="mensajeError" class="alert alert-danger border-0 shadow-sm rounded-3 mt-3 text-center d-none" role="alert">
+                No encontramos ningún pedido con ese código. Revisa que esté bien escrito (ej: HH-1001).
+            </div>
+
+        </main>
 
 
     <!-- FOOTER -->
@@ -175,11 +202,11 @@
     <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <!-- SCRIPT JS -->
+    <script src="action.js"></script>
+    <!-- SCRIPT JS -->
+    <script src="seguimiento.js"></script>
+    <!-- SCRIPT JS -->
     <script src="usuario.js"></script>
-</body>
-
-</html>
-
 </body>
 
 </html>
