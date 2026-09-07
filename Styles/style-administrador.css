@@ -1,0 +1,45 @@
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+
+.fuente-titulos {
+    font-family: 'Playfair Display', serif;
+    color: #2d5a27;
+}
+
+
+.nav-pills .nav-link {
+    color: #555;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+
+.nav-pills .nav-link:hover {
+    background-color: #eaf1ea;
+    color: #2d5a27;
+}
+
+
+.nav-pills .nav-link.active {
+    background-color: #2d5a27 !important;
+    color: #ffffff !important;
+}
+
+
+.campana-container {
+    cursor: pointer;
+}
+
+.campana-notificacion {
+    font-size: 1.5rem;
+    color: #2d5a27;
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.campana-container:hover .campana-notificacion {
+    transform: scale(1.1);
+}
