@@ -26,6 +26,7 @@
 /* Fuente principal para todo el sitio */
 body{
     font-family: 'Raleway', sans-serif;
+    background-color: #FEF4E7;
 }
 
 /* Fuente para encabezados y títulos */

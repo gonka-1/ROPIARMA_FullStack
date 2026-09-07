@@ -1,3 +1,6 @@
+
+
+Categorias · HTML
 <!DOCTYPE html>
 <html lang="es">
 <!-- HEAD -->
@@ -7,7 +10,7 @@
     <!-- BOOTSTRAP CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <!-- HOJA DE ESTILO -->
-    <link rel="stylesheet" href="Styles/style-productos.css">
+    <link rel="stylesheet" href="Styles/style-categorias.css">
     <!-- BOOTSTRAP ÍCONOS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <!-- FUENTES DE GOOGLE -->
@@ -90,22 +93,22 @@
 
     <!-- MAIN -->
     <main>
-        <div class="contenedor">
-            <div class="row row-cols-4 row-cols-md-5 justify-content-start g-3">
+         <div class="contenedor-cards">
+            <div class="row row-cols-1 row-cols-md-2 justify-content-center g-4">
                 <!-- Card: CATEGORÍA FRUTAS FRESCAS -->
-                <div class="col-auto d-flex">
-                    <div class="card d-flex flex-column h-100 card-border-hover" style="width: 20rem;">
+                <div class="col d-flex justify-content-center">
+                    <div class="card d-flex flex-column h-100 card-border-hover" style="width: 30rem; max-width: 100%;">
                         <img src="imagenes/CategoriaFrutas.png" class="card-img-top" alt="Frutas frescas">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Frutas frescas</h5>
-                            <p class="card-text corta-texto mb-4">
+                            <p class="card-text mb-4">
                                 Nuestra selección de frutas frescas ofrece una experiencia directa del campo a
                                 tu hogar. Estas frutas se cultivan y cosechan en el punto óptimo de madurez para asegurar
                                 su sabor y frescura. Disfruta de una variedad de frutas de temporada que aportan vitaminas
                                 y nutrientes esenciales a tu dieta diaria. Perfectas para consumir solas, en ensaladas o como
                                 ingrediente principal en postres y smoothies.
                             </p>
-                            <div class="contenedor-boton">
+                            <div class="contenedor-boton mt-auto">
                                 <button onclick="window.location.href='Productos-frutas.html'" class="btn btn-relieve">Ver
                                     Productos</button>
                             </div>
@@ -113,19 +116,19 @@
                     </div>
                 </div>
                 <!-- Card: CATEGORÍA VERDURAS ORGÁNICAS -->
-                <div class="col-auto d-flex">
-                    <div class="card d-flex flex-column h-100 card-border-hover" style="width: 20rem;">
+                <div class="col d-flex justify-content-center">
+                    <div class="card d-flex flex-column h-100 card-border-hover" style="width: 30rem; max-width: 100%;">
                         <img src="imagenes/CategoriaVerduras.jpg" class="card-img-top" alt="Verduras orgánicas">
-                        <div class="card-body flex-grow-1">
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Verduras Orgánicas</h5>
-                            <p class="card-text corta-texto mb-4">
+                            <p class="card-text mb-4">
                                Descubre nuestra gama de verduras orgánicas, cultivadas sin el uso de
                                 pesticidas ni químicos, garantizando un sabor auténtico y natural. Cada verdura es
                                 seleccionada por su calidad y valor nutricional, ofreciendo una excelente fuente de
                                 vitaminas, minerales y fibra. Ideales para ensaladas, guisos y platos saludables, nuestras
                                 verduras orgánicas promueven una alimentación consciente y sostenible.
                             </p>
-                            <div class="contenedor-boton">
+                            <div class="contenedor-boton mt-auto">
                                 <button onclick="window.location.href='Productos-verduras.html'" class="btn btn-relieve">Ver
                                     Productos</button>
                             </div>
@@ -133,19 +136,19 @@
                     </div>
                 </div>
                 <!-- Card CATEGORÍA PRODUCTOS ORGÁNICOS -->
-                <div class="col-auto d-flex">
-                    <div class="card d-flex flex-column h-100 card-border-hover" style="width: 20rem;">
+                <div class="col d-flex justify-content-center">
+                    <div class="card d-flex flex-column h-100 card-border-hover" style="width: 30rem; max-width: 100%;">
                         <img src="imagenes/CategoriaOrganicos.jpg" class="card-img-top" alt="Productos Organicos">
-                        <div class="card-body flex-grow-1">
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Productos Orgánicos</h5>
-                            <p class="card-text corta-texto mb-4">
+                            <p class="card-text mb-4">
                                 Nuestros productos orgánicos están elaborados con ingredientes naturales y
                                 procesados de manera responsable para mantener sus beneficios saludables. Desde aceites
                                 y miel hasta granos y semillas, ofrecemos una selección que apoya un estilo de vida
                                 saludable y respetuoso con el medio ambiente. Estos productos son perfectos para quienes
                                 buscan opciones alimenticias que aporten bienestar sin comprometer el sabor ni la calidad.
                             </p>
-                            <div class="contenedor-boton">
+                            <div class="contenedor-boton mt-auto">
                                 <button onclick="window.location.href='Productos-organicos.html'" class="btn btn-relieve">Ver
                                     Productos</button>
                             </div>
@@ -153,25 +156,27 @@
                     </div>
                 </div>
                 <!-- Card CATEGORÍA PRODUCTOS LACTEOS -->
-                <div class="col-auto d-flex">
-                    <div class="card d-flex flex-column h-100 card-border-hover" style="width: 20rem;">
+                <div class="col d-flex justify-content-center">
+                    <div class="card d-flex flex-column h-100 card-border-hover" style="width: 30rem; max-width: 100%;">
                         <img src="imagenes/CategoriaLacteos.jpg" class="card-img-top" alt="Productos Lacteos">
-                        <div class="card-body flex-grow-1">
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Productos Lacteos</h5>
-                            <p class="card-text corta-texto mb-4">
+                            <p class="card-text mb-4">
                                 Los productos lácteos de HuertoHogar provienen de granjas locales que se
                                 dedican a la producción responsable y de calidad. Ofrecemos una gama de leches, yogures
                                 y otros derivados que conservan su frescura y sabor auténtico. Ricos en calcio y nutrientes
                                 esenciales, nuestros lácteos son perfectos para complementar una dieta equilibrada,
                                 proporcionando el mejor sabor y nutrición para toda la familia.
                             </p>
-                            <div class="contenedor-boton">
+                            <div class="contenedor-boton mt-auto">
                                 <button onclick="window.location.href='Productos-lacteos.html'" class="btn btn-relieve">Ver
                                     Productos</button>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
     </main>
 
     <!-- FOOTER -->
@@ -232,3 +237,5 @@
 </body>
 
 </html>
+
+
