@@ -348,13 +348,24 @@ mostrarResenas();
 
 /*FOOTER*/
 
-function mensajeCupon(texto){
+function mensajeCupon(){
 
-    if(texto.incluir("@") || texto.incluir(".")){
-        alert("Gracias por suscribirte. Te asignamos el cupón 'HUERTITO10' para tu siguiente compra");
+    var inputCorreo = document.getElementById("txtEmail");
+    var correo = inputCorreo.value.trim();
+
+    var cupones = ["HUERTITO10", "FUJI123"];
+
+    if(correo.includes("@") && correo.includes(".") && correo.length >= 8){
+        
+        var cupon = cupones[Math.floor(Math.random() * cupones.length)]
+
+        alert("Gracias por suscribirte. Te asignamos el cupón " + cupon + " para tu siguiente compra");
+
+        inputCorreo.value = '';
     }else{
-        alert("Correo no valido para la suscripción")
+        alert("Correo no valido para la suscripción");
     }
+
 }
 
 /*FOOTER*/
