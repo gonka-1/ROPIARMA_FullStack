@@ -351,7 +351,7 @@ mostrarResenas();
 function mensajeCupon(texto){
 
     if(texto.incluir("@") || texto.incluir(".")){
-        alert("Gracias por suscribirte. Te asignamos el cupón "HUERTITO10" para tu siguiente compra")
+        alert("Gracias por suscribirte. Te asignamos el cupón 'HUERTITO10' para tu siguiente compra");
     }else{
         alert("Correo no valido para la suscripción")
     }
