@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Huerto Hogar</title>
+
+    <!-- BOOTSTRAP CSS E ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- ARCHIVO DE ESTILOS CSS -->
+    <link rel="stylesheet" href="Styles/style-administrador.css">
+
+    <!-- FUENTES DE GOOGLE -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+
+    <div class="d-flex vh-100 overflow-hidden">
+
+
+        <!--(MENÚ LATERAL)-->
+
+        <aside class="d-flex flex-column p-3 bg-white border-end shadow-sm" style="width: 260px;">
+
+            <div class="text-center mb-4 mt-2">
+                <img src="imagenes/LogoHuertoHogar.png" alt="Logo" class="rounded-circle" width="150" height="110"
+                    style="object-fit: contain;">
+            </div>
+
+            <!-- Menú Superior -->
+            <ul class="nav nav-pills flex-column mb-auto gap-1">
+                <li class="nav-item">
+                    <a href="Administrador.html" class="nav-link active"><i class="bi bi-grid-1x2 me-2"></i>
+                        Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Admin-ordenes.html" class="nav-link"><i class="bi bi-box-seam me-2"></i> Órdenes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Admin-inventario.html" class="nav-link"><i class="bi bi-boxes me-2"></i> Inventario</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="bi bi-bar-chart me-2"></i> Reportes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Admin-empleados.html" class="nav-link"><i class="bi bi-person-badge me-2"></i>
+                        Empleados</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Admin-clientes.html" class="nav-link"><i class="bi bi-people me-2"></i> Clientes</a>
+                </li>
+            </ul>
+
+            <hr class="text-secondary my-3">
+
+            <!-- Menú Inferior -->
+            <ul class="nav nav-pills flex-column mb-3 gap-1">
+                <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="bi bi-gear me-2"></i> Configuración</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="bi bi-person-plus me-2"></i> Perfil +</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="bi bi-search me-2"></i> Búsqueda</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="bi bi-question-circle me-2"></i> Ayuda</a>
+                </li>
+            </ul>
+
+            <!-- Perfil Administrador -->
+            <div class="d-flex align-items-center p-2 bg-light border rounded">
+                <img src="https://ui-avatars.com/api/?name=Admin+Huerto&background=2d5a27&color=fff" alt="Perfil"
+                    class="rounded-circle me-2" width="40" height="40">
+                <div class="small">
+                    <strong class="d-block text-dark">Administrador</strong>
+                    <span class="text-muted">Perfil activo</span>
+                </div>
+            </div>
+        </aside>
+
+
+        <!-- CONTENEDOR(Header, Main, Footer)  -->
+        <div class="d-flex flex-column flex-grow-1 overflow-auto">
+
+            <!-- HEADER -->
+            <header class="d-flex justify-content-between align-items-center bg-white p-4 border-bottom">
+                <h2 class="fuente-titulos m-0">¡HOLA Administrador!</h2>
+
+                <div class="position-relative campana-container">
+                    <i class="bi bi-bell-fill campana-notificacion"></i>
+                    <span
+                        class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
+                </div>
+            </header>
+
+            <!-- MAIN -->
+            <main class="container my-4">
+                <div class="row">
+                    <!-- Formulario -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-light">
+                                <h5 class="card-title mb-0" id="formTituloCliente">Registrar Cliente</h5>
+                            </div>
+                            <div class="card-body">
+                                <form id="formCliente">
+                                    <input type="hidden" id="clienteId">
+
+                                    <div class="mb-3">
+                                        <label for="nombreCliente" class="form-label">Nombre Completo</label>
+                                        <input type="text" class="form-control" id="nombreCliente" required
+                                            placeholder="Ej: María González">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="correoCliente" class="form-label">Correo Electrónico</label>
+                                        <input type="email" class="form-control" id="correoCliente" required
+                                            placeholder="maria@ejemplo.com">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="telefonoCliente" class="form-label">Teléfono</label>
+                                        <input type="tel" class="form-control" id="telefonoCliente"
+                                            placeholder="+56 9 1234 5678">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="regionCliente" class="form-label">Región</label>
+                                        <select class="form-select" id="regionCliente" required>
+                                            <option value="" selected disabled>Seleccionar...</option>
+                                            <option value="Región Metropolitana">Región Metropolitana</option>
+                                            <option value="Valparaíso">Valparaíso</option>
+                                            <option value="Bío Bío">Bío Bío</option>
+                                            <option value="Coquimbo">Coquimbo</option>
+                                            <option value="Otra">Otra Región</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="d-flex gap-2">
+                                        <button type="submit" class="btn btn-verde-admin btn-sm w-100"
+                                            id="btnGuardarCliente">Guardar Cliente</button>
+                                        <button type="button" class="btn btn-secondary btn-sm d-none"
+                                            id="btnCancelarCliente" onclick="cancelarEdicionCliente()">Cancelar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tabla -->
+                    <div class="col-md-8">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-light">
+                                <h5 class="card-title mb-0">Base de Datos de Clientes</h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover align-middle mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th class="ps-3">Nombre</th>
+                                                <th>Correo</th>
+                                                <th>Teléfono</th>
+                                                <th>Región</th>
+                                                <th class="text-end pe-3">Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tablaClientes">
+                                            <!-- Cargado por JS -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+
+
+
+            <!-- FOOTER -->
+            <footer class="bg-white border-top text-center p-3 text-muted small">
+                &copy; 2026 Huerto Hogar. Panel de Administración.
+            </footer>
+
+        </div>
+
+    </div>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- BOOTSTRAP JS -->
+    <script src="JS/admin.js"></script>
+</body>
+
+</html>

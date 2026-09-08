@@ -54,3 +54,57 @@ aside .nav-link:hover {
     color: #0f5132 !important; 
     transform: translateY(-2px); 
 }
+
+/*INVENTARIO*/
+
+/* Layout del contenedor principal */
+.admin-main-content {
+    flex-grow: 1;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    overflow-y: auto;
+}
+
+/* Títulos y colores corporativos */
+.admin-title,
+.card-title-custom {
+    color: #2D5A27;
+    font-weight: 700;
+}
+
+/* Tarjetas */
+.admin-card {
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border-radius: 0.5rem;
+}
+
+/* Botón principal (Guardar) */
+.btn-verde-admin {
+    background-color: #2D5A27;
+    color: #ffffff;
+    font-weight: 600;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn-verde-admin:hover {
+    background-color: #21431d;
+    color: #ffffff;
+}
+
+/* Tabla */
+.tabla-inventario-img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 0.375rem;
+}
+
+.badge-categoria {
+    background-color: #e8f5e9;
+    color: #2D5A27;
+    font-weight: 600;
+}
+
+/*INVENTARIO*/

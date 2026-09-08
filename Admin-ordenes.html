@@ -96,62 +96,99 @@
             </header>
 
             <!-- MAIN -->
-            <main class="d-flex flex-column gap-4 p-4 flex-grow-1"> 
-                
-                <!-- Panel Superior -->
-            <div>
-                <h5 class="fuente-titulos text-secondary fw-bold mb-3">Resumen de Hoy</h5>
-                <div class="row g-3">
-                    <div class="col-md-4">
-                        <div class="card border-0 shadow-sm p-3 border-start border-success border-4">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h6 class="text-muted mb-1">Ventas del Día</h6>
-                                    <h3 class="m-0 fw-bold">$125.000</h3>
+        <main class="d-flex flex-column gap-4 p-4 flex-grow-1">
+        
+            <!-- Encabezado -->
+            <div class="d-flex justify-content-between align-items-center mb-1">
+                <div>
+                    <h3 class="admin-title mb-1">Gestión de Órdenes</h3>
+                    <p class="text-muted small mb-0">Registra y administra los pedidos realizados por los clientes.</p>
+                </div>
+            </div>
+        
+            <!-- Layout 2 Columnas -->
+            <div class="row g-4">
+        
+                <!-- Formulario para Registrar Órden -->
+                <div class="col-lg-4">
+                    <div class="card admin-card">
+                        <div class="card-header bg-white border-0 pt-3 pb-0">
+                            <h6 class="card-title-custom" id="formTituloOrden">Registrar Nueva Órden</h6>
+                        </div>
+                        <div class="card-body">
+                            <form id="formOrden">
+                                <input type="hidden" id="ordenId">
+        
+                                <div class="mb-3">
+                                    <label class="form-label small fw-semibold">Nombre del Cliente</label>
+                                    <input type="text" class="form-control form-control-sm" id="clienteOrden"
+                                        placeholder="Ej. Juan Pérez" required>
                                 </div>
-                                <div class="bg-success bg-opacity-10 p-2 rounded text-success h3 m-0">
-                                    <i class="bi bi-currency-dollar"></i>
+        
+                                <div class="mb-3">
+                                    <label class="form-label small fw-semibold">Correo Electrónico</label>
+                                    <input type="email" class="form-control form-control-sm" id="correoOrden"
+                                        placeholder="juan@example.com" required>
                                 </div>
-                            </div>
+        
+                                <div class="row g-2 mb-3">
+                                    <div class="col-6">
+                                        <label class="form-label small fw-semibold">Monto Total ($)</label>
+                                        <input type="number" class="form-control form-control-sm" id="totalOrden" min="0"
+                                            placeholder="5000" required>
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label small fw-semibold">Estado</label>
+                                        <select class="form-select form-select-sm" id="estadoOrden" required>
+                                            <option value="Pendiente" selected>Pendiente</option>
+                                            <option value="En Preparación">En Preparación</option>
+                                            <option value="Enviado">Enviado</option>
+                                            <option value="Entregado">Entregado</option>
+                                        </select>
+                                    </div>
+                                </div>
+        
+                                <div class="d-grid gap-2 pt-2">
+                                    <button type="submit" class="btn btn-verde-admin btn-sm" id="btnGuardarOrden">
+                                        Registrar Órden
+                                    </button>
+                                    <button type="button" class="btn btn-light btn-sm text-muted d-none" id="btnCancelarOrden"
+                                        onclick="cancelarEdicionOrden()">
+                                        Cancelar
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                
-                    <div class="col-md-4">
-                        <div class="card border-0 shadow-sm p-3 border-start border-primary border-4">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h6 class="text-muted mb-1">Pedidos Nuevos</h6>
-                                    <h3 class="m-0 fw-bold">14</h3>
-                                </div>
-                                <div class="bg-primary bg-opacity-10 p-2 rounded text-primary h3 m-0">
-                                    <i class="bi bi-box-seam"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div class="col-md-4">
-                        <div class="card border-0 shadow-sm p-3 border-start border-warning border-4">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h6 class="text-muted mb-1">Bajo Stock</h6>
-                                    <h3 class="m-0 fw-bold">3 <span class="fs-6 text-muted fw-normal">productos</span></h3>
-                                </div>
-                                <div class="bg-warning bg-opacity-10 p-2 rounded text-warning h3 m-0">
-                                    <i class="bi bi-exclamation-triangle"></i>
-                                </div>
+                </div>
+        
+                <!-- Tabla de Órdenes -->
+                <div class="col-lg-8">
+                    <div class="card admin-card">
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle mb-0">
+                                    <thead class="table-light small">
+                                        <tr>
+                                            <th class="ps-3">ID Órden</th>
+                                            <th>Cliente</th>
+                                            <th>Fecha</th>
+                                            <th>Total</th>
+                                            <th>Estado</th>
+                                            <th class="text-end pe-3">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tablaOrdenes" class="small">
+                                        <!-- Se renderiza desde JS -->
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
+        
             </div>
-
-            <div class="card border-0 shadow-sm p-4 flex-grow-1 mt-2">
-                <h5 class="fuente-titulos text-secondary fw-bold mb-4">Detalles Recientes</h5>
-                 <p class="text-muted">Contenido de la segunda sección...</p>
-            </div>
-
-            </main>
+        </main>
 
             <!-- FOOTER -->
             <footer class="bg-white border-top text-center p-3 text-muted small">
@@ -164,7 +201,7 @@
 
     <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- BOOTSTRAP JS -->
+    <!-- BOOTSTRAP JS -->
     <script src="JS/admin.js"></script>
 </body>
 </html>
