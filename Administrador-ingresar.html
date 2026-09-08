@@ -97,13 +97,13 @@
                 <form id="formIngresar" novalidate>
                     <div class="mb-3">
                         <label class="form-label" for="typeEmail">Correo electrónico</label>
-                        <input type="email" id="typeEmail" class="form-control" required>
+                        <input type="email" id="Email" class="form-control" required>
                     </div>
     
                     <div class="mb-3">
                         <label for="typePassword">Contraseña</label>
                         <div class="input-group">
-                            <input type="password" id="typePassword" class="form-control" minlength="8" required>
+                            <input type="password" id="Password" class="form-control" minlength="8" required>
                             <button class="btn btn-outline-secondary" type="button" id="togglePassword">
                                 <i class="bi bi-eye" id="toggleIcon"></i>
                             </button>
@@ -111,11 +111,9 @@
                         </div>
                     </div>
                     <div class="contenedor-boton">
-                        <button type="submit" class="btn btn-relieve">Ingresar</button>
+                        <button onclick="validacionCuenta()" type="submit" class="btn btn-relieve">Ingresar</button>
                     </div>
                 </form>
-                <p class="text-center mt-3">¿No tienes una cuenta? <a href="Usuario.html">Crea una aquí</a></p>
-                <p class="text-center mt-3">¿Eres administrador? <a href="Administrador-ingresar.html">Ingresa aquí</a></p>
             </div>
         </div>
     </main>
@@ -174,6 +172,8 @@
 
     <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SCRIPT JS -->
+    <script src="JS/admin.js"></script>
     <!-- SCRIPT JS -->
     <script src="JS/usuario.js"></script>
 </body>
