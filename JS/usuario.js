@@ -105,13 +105,20 @@ function mostrarPerfilUsuario(){
   // Mostrar nombre completo en el perfil
   const nombreCompleto = [sesion.nombre, sesion.apellido].filter(Boolean).join(' ')
 
+  // Dirección: "Nombre calle #Numeración"
+  const direccion = sesion.calle
+    ? `${sesion.calle}${sesion.numeracion ? ' #' + sesion.numeracion : ''}`
+    : '';
+
+  // Comuna, Ciudad, Región en una sola línea
+  const ubicacion = [sesion.comuna, sesion.ciudad, sesion.region].filter(Boolean).join(', ');
+
   const campos = {
     nombreUsuarioPerfil: nombreCompleto || sesion.nombre,
     emailUsuarioPerfil: sesion.email,
     telefonoUsuarioPerfil: sesion.telefono,
-    comunaUsuarioPerfil: sesion.comuna,
-    ciudadUsuarioPerfil: sesion.ciudad,
-    regionUsuarioPerfil: sesion.region
+    direccionUsuarioPerfil: direccion,
+    ubicacionUsuarioPerfil: ubicacion
   };
 
   Object.entries(campos).forEach(([id, valor]) => {
@@ -280,12 +287,16 @@ document.addEventListener('DOMContentLoaded', function(){
       const nombre = document.getElementById('typeNombre').value.trim() || '';
       const apellido = document.getElementById('typeApellido').value.trim() || '';
       const telefono = document.getElementById('typePhone').value.trim() || '';
+      const calleInput = document.getElementById('typeCalle');
+      const numeracionInput = document.getElementById('typeNumeracion');
+      const calle = calleInput ? calleInput.value.trim() : '';
+      const numeracion = numeracionInput ? numeracionInput.value.trim() : '';
       const comuna = document.getElementById('typeComuna').value.trim() || '';
       const ciudad = document.getElementById('typeCiudad').value.trim() || '';
       const region = document.getElementById('typeRegion').value.trim() || '';
- 
-      guardarRegistroTemp({ nombre, apellido, telefono, comuna, ciudad, region });
- 
+
+      guardarRegistroTemp({ nombre, apellido, telefono, calle, numeracion, comuna, ciudad, region });
+
       window.location.href = 'Usuario-conf.html';
     });
   }
