@@ -43,3 +43,14 @@ body {
 .campana-container:hover .campana-notificacion {
     transform: scale(1.1);
 }
+
+aside .nav-link {
+    transition: all 0.2s ease-in-out;
+}
+
+aside .nav-link:hover {
+    background-color: #d1e7dd !important; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important; 
+    color: #0f5132 !important; 
+    transform: translateY(-2px); 
+}
